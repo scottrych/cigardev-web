@@ -12,7 +12,6 @@
             --accent: #38bdf8;
             --accent-glow: rgba(56, 189, 248, 0.2);
         }
-
         body {
             font-family: 'Inter', -apple-system, sans-serif;
             background: var(--bg);
@@ -23,18 +22,8 @@
             flex-direction: column;
             min-height: 100vh;
         }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
+        .container { max-width: 800px; margin: 0 auto; padding: 4rem 2rem; }
+        header { text-align: center; margin-bottom: 4rem; }
         h1 {
             font-size: 3rem;
             margin: 0;
@@ -42,19 +31,8 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
-        .tagline {
-            font-size: 1.25rem;
-            color: #94a3b8;
-            margin-top: 1rem;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
+        .tagline { font-size: 1.25rem; color: #94a3b8; margin-top: 1rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
         .card {
             background: var(--card);
             padding: 1.5rem;
@@ -64,18 +42,12 @@
             text-decoration: none;
             color: inherit;
         }
-
         .card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 30px var(--accent-glow);
             border-color: var(--accent);
         }
-
-        .card h3 {
-            margin: 0 0 0.5rem 0;
-            color: var(--accent);
-        }
-
+        .card h3 { margin: 0 0 0.5rem 0; color: var(--accent); }
         .status {
             display: inline-block;
             padding: 0.25rem 0.75rem;
@@ -86,58 +58,43 @@
             font-weight: bold;
             margin-bottom: 1rem;
         }
-
-        footer {
-            margin-top: auto;
-            text-align: center;
-            padding: 2rem;
-            color: #64748b;
-            font-size: 0.875rem;
-        }
-
-        .badge {
-            font-family: monospace;
-            background: #000;
-            padding: 0.2rem 0.5rem;
-            border-radius: 0.25rem;
-            color: var(--accent);
-        }
+        .status.alert { background: #450a0a; color: #ef4444; }
+        footer { margin-top: auto; text-align: center; padding: 2rem; color: #64748b; font-size: 0.875rem; }
+        .badge { font-family: monospace; background: #000; padding: 0.2rem 0.5rem; border-radius: 0.25rem; color: var(--accent); }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
             <h1>Scott</h1>
-            <p class="tagline">Developer & Automation Specialist</p>
+            <p class="tagline">Developer &amp; Automation Specialist</p>
             <p><span class="badge">scott@cigardev.xyz</span></p>
         </header>
-
         <div class="grid">
             <a href="https://n8n.cigardev.xyz" class="card">
                 <div class="status">LIVE</div>
                 <h3>n8n Automation Hub</h3>
                 <p>Private workflows and cloud-to-local automation bridge via Tailscale.</p>
             </a>
-
+            <a href="/rubrik" class="card">
+                <div class="status alert">LIVE</div>
+                <h3>Rubrik Triage</h3>
+                <p>Live backup alert dashboard for Hearst clusters.</p>
+            </a>
             <div class="card">
                 <h3>Warp Workflows</h3>
                 <p>Custom Aerospace layouts, Brew audits, and SSH monitoring tools.</p>
             </div>
-
             <div class="card">
                 <h3>AI Stack</h3>
                 <p>Local LLM orchestration with LM Studio and custom Gemini CLI tools.</p>
             </div>
-
             <a href="https://github.com/scottrych" class="card">
                 <h3>GitHub</h3>
                 <p>Explore the code behind the automations and dotfiles.</p>
             </a>
         </div>
     </div>
-
-    <footer>
-        &copy; 2026 cigardev.xyz | Managed on Railway | Secured by Tailscale
-    </footer>
+    <footer>&copy; 2026 cigardev.xyz | Managed on Railway | Secured by Tailscale</footer>
 </body>
 </html>
