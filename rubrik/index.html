@@ -13,170 +13,124 @@
   --green: #4ade80; --green-dim: #052e16;
   --cyan: #22d3ee; --cyan-dim: #083344;
 }
-* { box-sizing: border-box; }
 body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); margin: 0; }
 .wrap { max-width: 800px; margin: 0 auto; padding: 1.5rem; }
-.backlink { font-size: 0.85rem; color: var(--accent); text-decoration: none; }
+.back { font-size: 0.85rem; color: var(--accent); text-decoration: none; }
 h1 { font-size: 2rem; margin: 0.5rem 0 0.25rem; background: linear-gradient(90deg, #fff, var(--accent)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.subtitle { color: #94a3b8; font-size: 0.9rem; margin-bottom: 1.25rem; }
+.sub { color: #94a3b8; font-size: 0.9rem; margin-bottom: 1.25rem; }
 .pills { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
-.pill { padding: 0.35rem 0.85rem; border-radius: 999px; font-size: 0.85rem; font-weight: 600; }
-.pill.red { background: var(--red-dim); color: var(--red); }
-.pill.amber { background: var(--amber-dim); color: var(--amber); }
-.pill.cyan { background: var(--cyan-dim); color: var(--cyan); }
-.pill.gray { background: #1e293b; color: #94a3b8; border: 1px solid #334155; }
-h2 { font-size: 1.1rem; color: #cbd5e1; margin-top: 2rem; margin-bottom: 0.5rem; border-bottom: 1px solid #334155; padding-bottom: 0.4rem; }
+.pill { padding: 0.35rem 0.8rem; border-radius: 999px; font-size: 0.85rem; font-weight: 600; }
+.pill.crit { background: var(--red-dim); color: var(--red); }
+.pill.warn { background: var(--amber-dim); color: var(--amber); }
+.pill.reply { background: var(--cyan-dim); color: var(--cyan); }
+.pill.watch { background: #1e293b; color: #94a3b8; border: 1px solid #334155; }
+h2 { font-size: 1.1rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; margin: 1.75rem 0 0.75rem; }
 .card { background: var(--card); border-radius: 1rem; border: 1px solid #334155; padding: 1.25rem; margin: 0.75rem 0; border-left: 4px solid #334155; }
-.card.critical { border-left-color: var(--red); }
-.card.warning { border-left-color: var(--amber); }
+.card.crit { border-left-color: var(--red); }
+.card.warn { border-left-color: var(--amber); }
 .card.reply { border-left-color: var(--cyan); }
-.card.watching { border-left-color: #334155; }
-.card.clear { border-left-color: var(--green); }
-.card-title { font-weight: 700; font-size: 1rem; margin-bottom: 0.35rem; }
+.card.watch { border-left-color: #334155; }
+.card.green { border-left-color: var(--green); }
+.card-title { font-weight: 700; font-size: 1.05rem; margin-bottom: 0.35rem; }
+.card-meta { color: #94a3b8; font-size: 0.85rem; margin-bottom: 0.5rem; }
+.card-detail { font-size: 0.9rem; color: #cbd5e1; }
 .badge { display: inline-block; font-size: 0.7rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 0.4rem; margin-left: 0.5rem; vertical-align: middle; }
-.badge.reply { background: var(--cyan-dim); color: var(--cyan); }
-.badge.corroborated { background: var(--red-dim); color: var(--red); }
-.loc { color: #94a3b8; font-size: 0.85rem; margin-bottom: 0.4rem; }
-.detail { font-size: 0.9rem; color: #e2e8f0; }
-footer { text-align: center; color: #64748b; font-size: 0.8rem; margin-top: 2.5rem; padding-bottom: 1rem; }
+.badge.corr { background: var(--green-dim); color: var(--green); }
+footer { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid #334155; color: #64748b; font-size: 0.8rem; text-align: center; }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <a class="backlink" href="https://cigardev.xyz">&larr; cigardev.xyz</a>
-  <h1>Rubrik Triage</h1>
-  <div class="subtitle">Last updated: July 3, 2026 at 8:03 AM ET</div>
+<a class="back" href="https://cigardev.xyz">&larr; cigardev.xyz</a>
+<h1>Rubrik Triage</h1>
+<div class="sub">Last updated: July 6, 2026 at 8:03 AM ET</div>
 
-  <div class="pills">
-    <span class="pill red">&#128308; 7 Critical</span>
-    <span class="pill amber">&#9888;&#65039; 2 Warnings</span>
-    <span class="pill cyan">&#128587; 0 Replies</span>
-    <span class="pill gray">&#128064; 7 Watching</span>
-  </div>
+<div class="pills">
+<span class="pill crit">&#128308; 7 Critical</span>
+<span class="pill warn">&#9888;&#65039; 2 Warnings</span>
+<span class="pill reply">&#128587; 0 Replies</span>
+<span class="pill watch">&#128064; 0 Watching</span>
+</div>
 
-  <h2>Critical</h2>
+<h2>Critical</h2>
 
-  <div class="card critical">
-    <div class="card-title">Rubrik: RBS unreachable &ndash; Boston</div>
-    <div class="loc">htv001bosrbk001 &rarr; Boston</div>
-    <div class="detail">WCVB-ABX1 unreachable: could not reach host, Florical Filesets snapshot failing. 3 days running (since 7/1).</div>
-  </div>
+<div class="card crit">
+<div class="card-title">Snapshot failure &ndash; Kansas City</div>
+<div class="card-meta">htv001kscrbk001 &rarr; Kansas City</div>
+<div class="card-detail">Snapshot failed for KMBC-MOS (2019) HATMOS SERVER (6 days running)</div>
+</div>
 
-  <div class="card critical">
-    <div class="card-title">Rubrik: SMB mount failures &ndash; Albany</div>
-    <div class="loc">hts001albrbk001 &rarr; Albany</div>
-    <div class="detail">Unable to mount NAS SMB shares Exec + Knightbook on HNP001ALBRES001 (HSTGLBRubrikSvc01). 3 days running.</div>
-  </div>
+<div class="card crit">
+<div class="card-title">SMB mount failures &ndash; Albany</div>
+<div class="card-meta">hts001albrbk001 &rarr; Albany</div>
+<div class="card-detail">Unable to mount NAS SMB shares Exec + Knightbook on HNP001ALBRES001 (6 days running)</div>
+</div>
 
-  <div class="card critical">
-    <div class="card-title">Rubrik: Node task failures &ndash; Milwaukee</div>
-    <div class="loc">htv001mlwrbk001 &rarr; Milwaukee</div>
-    <div class="detail">Periodic node task failure (node RVMHM191S004070). 3 days running.</div>
-  </div>
+<div class="card crit">
+<div class="card-title">Node task failures &ndash; Milwaukee</div>
+<div class="card-meta">htv001mlwrbk001 &rarr; Milwaukee</div>
+<div class="card-detail">Periodic node task failure (node RVMHM191S004070) (6 days running)</div>
+</div>
 
-  <div class="card critical">
-    <div class="card-title">Rubrik: Node task failure &ndash; Tampa</div>
-    <div class="loc">htv001tparbk001 &rarr; Tampa</div>
-    <div class="detail">Periodic node task failure (node RVMHM187S009507). 3 days running.</div>
-  </div>
+<div class="card crit">
+<div class="card-title">Node task failure &ndash; Des Moines</div>
+<div class="card-meta">htv001dsmrbk001 &rarr; Des Moines</div>
+<div class="card-detail">Periodic node task failure (node RVMHM187S009518) &middot; reappeared today after a few quiet days</div>
+</div>
 
-  <div class="card critical">
-    <div class="card-title">Rubrik: Backup failure &ndash; Fort Smith</div>
-    <div class="loc">htv001ftsrbk001 &rarr; Fort Smith</div>
-    <div class="detail">Failed backup of Volume Groups: KHOG-COMPUSAT + KHBS-MELOG volumes. 3 days running.</div>
-  </div>
+<div class="card crit">
+<div class="card-title">Backup failure &ndash; Fort Smith</div>
+<div class="card-meta">htv001ftsrbk001 &rarr; Fort Smith</div>
+<div class="card-detail">Failed backup of Volume Groups: KHOG-COMPUSAT + KHBS-MELOG volumes (6 days running)</div>
+</div>
 
-  <div class="card critical">
-    <div class="card-title">Rubrik: Backup failures &ndash; Orlando</div>
-    <div class="loc">htv001orlrbk001 &rarr; Orlando</div>
-    <div class="detail">WESH-FS1 snapshot failures x4: Department_Groups, D drive other folders, User_shares filesets + volume group. 3 days running.</div>
-  </div>
+<div class="card crit">
+<div class="card-title">Backup failures &ndash; Orlando</div>
+<div class="card-meta">htv001orlrbk001 &rarr; Orlando</div>
+<div class="card-detail">WESH-FS1 snapshot failures x4: Department_Groups, D drive other folders, User_shares filesets + volume group (6 days running)</div>
+</div>
 
-  <div class="card critical">
-    <div class="card-title">Rubrik: Snapshot failure &ndash; Kansas City</div>
-    <div class="loc">htv001kscrbk001 &rarr; Kansas City</div>
-    <div class="detail">Snapshot failed for KMBC-MOS (2019) HATMOS SERVER. 3 days running.</div>
-  </div>
+<div class="card crit">
+<div class="card-title">RBS unreachable / snapshot failures &ndash; Boston</div>
+<div class="card-meta">htv001bosrbk001 &rarr; Boston</div>
+<div class="card-detail">WCVB-ABX1 connectivity issues persist, Florical Filesets snapshot failing (6 days running)</div>
+</div>
 
-  <h2>Warnings</h2>
+<h2>Warnings</h2>
 
-  <div class="card warning">
-    <div class="card-title">Rubrik: Storage over 90% &ndash; Boston</div>
-    <div class="loc">htv001bosrbk001 &rarr; Boston</div>
-    <div class="detail">System storage usage over 90% &mdash; cluster may become unstable. 3 days running, not resolved.</div>
-  </div>
+<div class="card warn">
+<div class="card-title">Storage over 90% &ndash; Boston</div>
+<div class="card-meta">htv001bosrbk001 &rarr; Boston</div>
+<div class="card-detail">System storage usage over 90% &mdash; cluster may become unstable (6 days running, not resolved)</div>
+</div>
 
-  <div class="card warning">
-    <div class="card-title">Rubrik: RBS unreachable &ndash; Jackson</div>
-    <div class="loc">htv001jksrbk001 &rarr; Jackson</div>
-    <div class="detail">RBS timeouts x2: 10.158.14.101, 10.158.36.114. 3 days running.</div>
-  </div>
+<div class="card warn">
+<div class="card-title">RBS unreachable &ndash; Jackson</div>
+<div class="card-meta">htv001jksrbk001 &rarr; Jackson</div>
+<div class="card-detail">RBS timeouts x2: 10.158.14.101, 10.158.36.114 (6 days running)</div>
+</div>
 
-  <h2>Support Cases</h2>
+<h2>Support Cases</h2>
 
-  <div class="card critical">
-    <div class="card-title">P1 Case #01252114 &ndash; Milwaukee (Node is Bad)<span class="badge corroborated">Corroborated</span></div>
-    <div class="loc">htv001mlwrbk001 &rarr; Milwaukee</div>
-    <div class="detail">Node RVMHM191S004136. Waiting for Customer Input: enable support tunnel. No new support update since 7/1 &mdash; cluster still showing active critical alerts today.</div>
-  </div>
+<div class="card crit">
+<div class="card-title">P1 Case #01252114 &ndash; Milwaukee (Node is Bad)<span class="badge corr">Corroborated</span></div>
+<div class="card-meta">htv001mlwrbk001 &rarr; Milwaukee</div>
+<div class="card-detail">Node is Bad (RVMHM191S004136) &middot; Waiting for Customer Input: enable support tunnel &middot; No case update from Rubrik since 7/1 (5 days) &mdash; cluster still showing active critical alerts, so kept open. Worth pinging Rubrik support directly, since the ball's in your court on the tunnel.</div>
+</div>
 
-  <div class="card warning">
-    <div class="card-title">P2 Case #01241364 &ndash; Milwaukee (Azure archive failures)</div>
-    <div class="loc">htv001mlwrbk001 &rarr; Milwaukee</div>
-    <div class="detail">Recurring archive failures to Azure target and cluster diagnostic failures. No new support update since 6/30.</div>
-  </div>
+<h2>Things 3 Changes</h2>
 
-  <h2>Watching (Day 1&ndash;2, not yet confirmed)</h2>
+<div class="card green">
+<div class="card-title">&#9989; Closed (2)</div>
+<div class="card-detail">Node task failure &ndash; Tampa (3 days quiet) &middot; P2 Case #01241364 &ndash; Milwaukee Azure archive failures (4 days quiet, uncorroborated)</div>
+</div>
 
-  <div class="card watching">
-    <div class="card-title">Encryption key verification failure &ndash; Tampa</div>
-    <div class="loc">htv001tparbk001 &rarr; Tampa</div>
-    <div class="detail">RBK94000003 Security.TpmError, node RVMHM187S009507. Not seen 7/2 or 7/3 &mdash; stale, will drop off if it doesn\t7recur.</div>
-  </div>
+<div class="card watch">
+<div class="card-title">Updated (9)</div>
+<div class="card-detail">Refreshed last-seen dates and notes on all 8 confirmed cluster issues plus the open Milwaukee P1 case</div>
+</div>
 
-  <div class="card watching">
-    <div class="card-title">Snapshot upload failure &ndash; Milwaukee</div>
-    <div class="loc">htv001mlwrbk001 &rarr; Milwaukee</div>
-    <div class="detail">Unable to upload snapshot WISN-OTSM1, RBK93330030 Atlas.CreateDirectoryRPC. Not seen since 7/1.</div>
-  </div>
-
-  <div class="card watching">
-    <div class="card-title">RBS unreachable &ndash; Salinas</div>
-    <div class="loc">htv001snsrbk001 &rarr; Salinas</div>
-    <div class="detail">RBS timeouts x2: 10.149.23.93, ksbw-vantage-1. Not seen since 7/1.</div>
-  </div>
-
-  <div class="card watching">
-    <div class="card-title">RBS unreachable &ndash; Kansas City</div>
-    <div class="loc">htv001kscrbk001 &rarr; Kansas City</div>
-    <div class="detail">RBS timeout: 10.141.21.182. Not seen since 7/1.</div>
-  </div>
-
-  <div class="card watching">
-    <div class="card-title">vCenter unreachable &ndash; Manchester</div>
-    <div class="loc">htv001mncrbk001 &rarr; Manchester</div>
-    <div class="detail">Failed to refresh vCenter 10.161.54.50. Not seen since 7/2.</div>
-  </div>
-
-  <div class="card watching">
-    <div class="card-title">File retrieval errors &ndash; FDBDR cloud cluster</div>
-    <div class="loc">fdbdr-rbkcc-001 &rarr; FDBDR</div>
-    <div class="detail">Retrieval errors x2 for fileset APP30_cfs_PRD. Not seen since 7/2.</div>
-  </div>
-
-  <div class="card watching">
-    <div class="card-title">Snapshot upload failure &ndash; New Orleans</div>
-    <div class="loc">htv001nolrbk001 &rarr; New Orleans</div>
-    <div class="detail">Failed to upload snapshot of 4099 Station TVDC1 from 10.140.38.210. Not seen since 7/2.</div>
-  </div>
-
-  <h2>Things 3 Changes</h2>
-  <div class="card watching">
-    <div class="card-title">No new tasks created or closed today</div>
-    <div class="detail">9 existing tasks had their notes refreshed (last seen &rarr; 7/3, now 3 days running). Des Moines node task failure wasn\t7seen today &mdash; day 1 of silence, left open.</div>
-  </div>
-
-  <footer>cigardev.xyz | Rubrik Triage | July 3, 2026</footer>
+<footer>cigardev.xyz | Rubrik Triage | July 6, 2026</footer>
 </div>
 </body>
 </html>
