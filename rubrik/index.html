@@ -55,6 +55,7 @@
   .badge.resolved { background: var(--green-dim); color: #86efac; }
   .loc { color: #94a3b8; font-size: 0.85rem; margin-bottom: 0.5rem; }
   .detail { font-size: 0.9rem; color: #cbd5e1; line-height: 1.4; }
+  .note { color: #64748b; font-size: 0.8rem; margin: 0.5rem 0 1.25rem 0; }
   footer { text-align: center; color: #64748b; font-size: 0.8rem; margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid #1e293b; }
 </style>
 </head>
@@ -62,13 +63,14 @@
 <div class="wrap">
   <a class="backlink" href="https://cigardev.xyz">&larr; cigardev.xyz</a>
   <h1>Rubrik Triage</h1>
-  <div class="subtitle">Last updated: July 9, 2026 at 8:04 AM ET</div>
+  <div class="subtitle">Last updated: July 9, 2026 at 3:40 PM ET</div>
+  <div class="note">LDAP service-health alerts are no longer tracked (treated as noise, same as SLA-violation alerts) — 3 previously-watching LDAP entries were removed today.</div>
 
   <div class="pills">
     <span class="pill red">🔴 5 Critical</span>
     <span class="pill amber">⚠️ 2 Warnings</span>
     <span class="pill cyan">🙋 0 Replies</span>
-    <span class="pill slate">👀 7 Watching</span>
+    <span class="pill slate">👀 4 Watching</span>
   </div>
 
   <section>
@@ -131,24 +133,9 @@
   <section>
     <h2>👀 Watching</h2>
     <div class="card watching">
-      <div class="card-title">LDAP service unhealthy (Day 1 — new today)</div>
-      <div class="loc">htv001bosrbk001 → Boston</div>
-      <div class="detail">LDAP (companynet.org) cannot be accessed from htv001bosrbk001</div>
-    </div>
-    <div class="card watching">
-      <div class="card-title">LDAP service unhealthy (Day 1 — new today)</div>
-      <div class="loc">htv001mlwrbk001 → Milwaukee</div>
-      <div class="detail">LDAP (companynet.org) cannot be accessed from htv001mlwrbk001</div>
-    </div>
-    <div class="card watching">
       <div class="card-title">MSSQL log backup failure (silent 2 days)</div>
       <div class="loc">htv001mlwrbk001 → Milwaukee (WISN-FCDB1)</div>
       <div class="detail">Creating MSSQL log failed — agent internal error RBK92070005</div>
-    </div>
-    <div class="card watching">
-      <div class="card-title">LDAP service unhealthy (silent 2 days)</div>
-      <div class="loc">htv001dsmrbk001 → Des Moines</div>
-      <div class="detail">LDAP (companynet.org) cannot be accessed</div>
     </div>
     <div class="card watching">
       <div class="card-title">Node task failure (silent 1 day)</div>
