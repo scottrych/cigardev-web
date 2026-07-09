@@ -63,11 +63,12 @@
 <div class="wrap">
   <a class="backlink" href="https://cigardev.xyz">&larr; cigardev.xyz</a>
   <h1>Rubrik Triage</h1>
-  <div class="subtitle">Last updated: July 9, 2026 at 3:40 PM ET</div>
+  <div class="subtitle">Last updated: July 9, 2026 at 4:15 PM ET</div>
   <div class="note">LDAP service-health alerts are no longer tracked (treated as noise, same as SLA-violation alerts) — 3 previously-watching LDAP entries were removed today.</div>
+  <div class="note">Issue tracking now keys on cluster + specific object, not just cluster — avoids mistaking a different VM's one-off retry-then-succeed failure each night for one continuous outage. The Milwaukee "snapshot upload failures" item below was a false positive of exactly this kind (3 different VMs across 3 days, each auto-retried successfully within the hour) and its task was closed.</div>
 
   <div class="pills">
-    <span class="pill red">🔴 5 Critical</span>
+    <span class="pill red">🔴 4 Critical</span>
     <span class="pill amber">⚠️ 2 Warnings</span>
     <span class="pill cyan">🙋 0 Replies</span>
     <span class="pill slate">👀 4 Watching</span>
@@ -79,11 +80,6 @@
       <div class="card-title">Node task failures <span class="badge critical">CRITICAL</span></div>
       <div class="loc">htv001mlwrbk001 → Milwaukee</div>
       <div class="detail">Periodic node task failures (nodes RVMHM191S004070, RVMHM191S004072, RVMHM191S004136, RVMHM191S004373) — 9 days running</div>
-    </div>
-    <div class="card critical">
-      <div class="card-title">Snapshot upload failures <span class="badge critical">CRITICAL</span></div>
-      <div class="loc">htv001mlwrbk001 → Milwaukee</div>
-      <div class="detail">Unable to upload snapshot: WISN-RTCR-MPB (7/9) — internal error, incident 4e7b5128-3d4a-4280-bb43-ca365ea099f3 — 3 days running</div>
     </div>
     <div class="card critical">
       <div class="card-title">Snapshot failure <span class="badge critical">CRITICAL</span></div>
@@ -158,7 +154,7 @@
     <h2>Things 3 Changes</h2>
     <div class="card green">
       <div class="card-title">🏁 Closed</div>
-      <div class="detail">Node task failure – Des Moines (3 consecutive days silent)<br>RBS unreachable – Boston (3 consecutive days silent)</div>
+      <div class="detail">Node task failure – Des Moines (3 consecutive days silent)<br>RBS unreachable – Boston (3 consecutive days silent)<br>Snapshot upload failures – Milwaukee (false positive — rotating VMs that self-resolved via retry; tracking switched to cluster+object keys)</div>
     </div>
   </section>
 
