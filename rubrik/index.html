@@ -1,164 +1,115 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rubrik Triage</title>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rubrik Triage &mdash; 2026-07-10</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #0f172a; --card: #1e293b; --text: #f1f5f9;
-    --accent: #38bdf8; --accent-glow: rgba(56,189,248,0.2);
-    --red: #ef4444; --red-dim: #450a0a;
-    --amber: #f59e0b; --amber-dim: #451a03;
-    --green: #4ade80; --green-dim: #052e16;
-    --cyan: #22d3ee; --cyan-dim: #083344;
-  }
-  body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); margin: 0; }
-  .wrap { max-width: 800px; margin: 0 auto; padding: 1.5rem; }
-  .backlink { font-size: 0.85rem; color: var(--accent); text-decoration: none; }
-  .backlink:hover { text-decoration: underline; }
-  h1 {
-    font-size: 2rem; margin: 0.75rem 0 0.25rem 0;
-    background: linear-gradient(90deg, #ffffff, var(--accent));
-    -webkit-background-clip: text; background-clip: text; color: transparent;
-  }
-  .subtitle { color: #94a3b8; font-size: 0.9rem; margin-bottom: 1.25rem; }
-  .pills { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
-  .pill {
-    padding: 0.35rem 0.85rem; border-radius: 999px; font-size: 0.85rem; font-weight: 600;
-    border: 1px solid #334155;
-  }
-  .pill.red { background: var(--red-dim); color: #fca5a5; border-color: #7f1d1d; }
-  .pill.amber { background: var(--amber-dim); color: #fcd34d; border-color: #78350f; }
-  .pill.cyan { background: var(--cyan-dim); color: #67e8f9; border-color: #164e63; }
-  .pill.slate { background: #1e293b; color: #cbd5e1; border-color: #334155; }
-  section { margin-bottom: 2rem; }
-  h2 { font-size: 1.1rem; margin-bottom: 0.5rem; color: #e2e8f0; }
-  .card {
-    background: var(--card); border-radius: 1rem; border: 1px solid #334155;
-    padding: 1.25rem; margin: 0.75rem 0; border-left: 4px solid #334155;
-  }
-  .card.critical { border-left-color: var(--red); }
-  .card.warning { border-left-color: var(--amber); }
-  .card.reply { border-left-color: var(--cyan); }
-  .card.watching { border-left-color: #334155; }
-  .card.green { border-left-color: var(--green); }
-  .card-title { font-weight: 700; font-size: 1rem; margin-bottom: 0.35rem; }
-  .badge {
-    display: inline-block; font-size: 0.7rem; font-weight: 700; padding: 0.15rem 0.5rem;
-    border-radius: 6px; margin-left: 0.5rem; vertical-align: middle;
-  }
-  .badge.critical { background: var(--red-dim); color: #fca5a5; }
-  .badge.warning { background: var(--amber-dim); color: #fcd34d; }
-  .badge.reply { background: var(--cyan-dim); color: #67e8f9; }
-  .badge.corroborated { background: #1e293b; color: #94a3b8; border: 1px solid #334155; }
-  .badge.resolved { background: var(--green-dim); color: #86efac; }
-  .loc { color: #94a3b8; font-size: 0.85rem; margin-bottom: 0.5rem; }
-  .detail { font-size: 0.9rem; color: #cbd5e1; line-height: 1.4; }
-  .note { color: #64748b; font-size: 0.8rem; margin: 0.5rem 0 1.25rem 0; }
-  footer { text-align: center; color: #64748b; font-size: 0.8rem; margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid #1e293b; }
-</style>
-</head>
-<body>
-<div class="wrap">
-  <a class="backlink" href="https://cigardev.xyz">&larr; cigardev.xyz</a>
-  <h1>Rubrik Triage</h1>
-  <div class="subtitle">Last updated: July 9, 2026 at 4:15 PM ET</div>
-  <div class="note">LDAP service-health alerts are no longer tracked (treated as noise, same as SLA-violation alerts) — 3 previously-watching LDAP entries were removed today.</div>
-  <div class="note">Issue tracking now keys on cluster + specific object, not just cluster — avoids mistaking a different VM's one-off retry-then-succeed failure each night for one continuous outage. The Milwaukee "snapshot upload failures" item below was a false positive of exactly this kind (3 different VMs across 3 days, each auto-retried successfully within the hour) and its task was closed.</div>
-
-  <div class="pills">
-    <span class="pill red">🔴 4 Critical</span>
-    <span class="pill amber">⚠️ 2 Warnings</span>
-    <span class="pill cyan">🙋 0 Replies</span>
-    <span class="pill slate">👀 4 Watching</span>
-  </div>
-
-  <section>
-    <h2>🔴 Critical</h2>
-    <div class="card critical">
-      <div class="card-title">Node task failures <span class="badge critical">CRITICAL</span></div>
-      <div class="loc">htv001mlwrbk001 → Milwaukee</div>
-      <div class="detail">Periodic node task failures (nodes RVMHM191S004070, RVMHM191S004072, RVMHM191S004136, RVMHM191S004373) — 9 days running</div>
+:root {
+  --bg:#0f172a; --card:#1e293b; --text:#f1f5f9;
+  --accent:#38bdf8; --accent-glow:rgba(56,189,248,0.2);
+  --red:#ef4444; --red-dim:#450a0a;
+  --amber:#f59e0b; --amber-dim:#451a03;
+  --green:#4ade80; --green-dim:#052e16;
+  --cyan:#22d3ee; --cyan-dim:#083344;
+}
+body { font-family:'Inter',-apple-system,sans-serif; background:var(--bg); color:var(--text); margin:0; }
+.wrap { max-width:800px; margin:0 auto; padding:1.5rem; }
+h1 { font-size:2rem; margin:0.2rem 0; background:linear-gradient(90deg,#fff,var(--accent)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+a { color:var(--accent); text-decoration:none; }
+</style></head>
+<body><div class="wrap">
+<a href="https://cigardev.xyz" style="font-size:0.85rem;">&larr; cigardev.xyz</a>
+<h1>Rubrik Triage</h1>
+<div style="color:#94a3b8;font-size:0.9rem;margin-bottom:1rem;">Last updated: July 10, 2026 at 8:04 AM ET</div>
+<div><span style="display:inline-block;background:var(--red);color:#0f172a;font-weight:700;padding:6px 14px;border-radius:999px;margin:4px 6px 4px 0;font-size:0.9rem;">&#128308; 6 Critical</span><span style="display:inline-block;background:var(--amber);color:#0f172a;font-weight:700;padding:6px 14px;border-radius:999px;margin:4px 6px 4px 0;font-size:0.9rem;">&#9888;&#65039; 2 Warnings</span><span style="display:inline-block;background:var(--cyan);color:#0f172a;font-weight:700;padding:6px 14px;border-radius:999px;margin:4px 6px 4px 0;font-size:0.9rem;">&#128588; 0 Replies</span><span style="display:inline-block;background:#475569;color:#0f172a;font-weight:700;padding:6px 14px;border-radius:999px;margin:4px 6px 4px 0;font-size:0.9rem;">&#128064; 10 Watching</span></div>
+<div style="background:var(--green-dim);border:1px solid var(--green);border-radius:0.75rem;padding:0.75rem 1rem;margin:1rem 0;font-size:0.9rem;">&#128196; Daily Event Report received &mdash; all 26 critical rows also had real-time alert emails. No coverage gap today.</div>
+<h2 style="font-size:1.2rem;margin:2rem 0 0.5rem;border-bottom:1px solid #334155;padding-bottom:6px;">&#128308; Critical</h2>
+<div style="background:var(--card);border-radius:1rem;border:1px solid #334155;border-left:4px solid var(--red);padding:1.25rem;margin:0.75rem 0;">
+      <div style="font-size:1.05rem;font-weight:700;">Snapshot failure &amp;ndash; Kansas City<span style="display:inline-block;font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:6px;background:var(--red);color:#0f172a;margin-left:6px;vertical-align:middle;">10 DAYS</span></div>
+      <div style="font-size:0.85rem;color:#94a3b8;margin-top:4px;">htv001kscrbk001 &rarr; Kansas City</div><div style="font-size:0.9rem;color:#cbd5e1;margin-top:4px;"><strong>Object:</strong> KMBC-MOS (2019) HATMOS SERVER</div>
+      <div style="font-size:0.9rem;color:#e2e8f0;margin-top:8px;line-height:1.4;">Snapshot cannot be taken. Active again today. 10 days running.</div>
+    </div><div style="background:var(--card);border-radius:1rem;border:1px solid #334155;border-left:4px solid var(--red);padding:1.25rem;margin:0.75rem 0;">
+      <div style="font-size:1.05rem;font-weight:700;">Backup failure &amp;ndash; Fort Smith<span style="display:inline-block;font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:6px;background:var(--red);color:#0f172a;margin-left:6px;vertical-align:middle;">10 DAYS</span></div>
+      <div style="font-size:0.85rem;color:#94a3b8;margin-top:4px;">htv001ftsrbk001 &rarr; Fort Smith</div><div style="font-size:0.9rem;color:#cbd5e1;margin-top:4px;"><strong>Object:</strong> KHOG-COMPUSAT + KHBS-MELOG volumes</div>
+      <div style="font-size:0.9rem;color:#e2e8f0;margin-top:8px;line-height:1.4;">Volume group backup failed (KHOG-COMPUSAT seen today). 10 days running.</div>
+    </div><div style="background:var(--card);border-radius:1rem;border:1px solid #334155;border-left:4px solid var(--red);padding:1.25rem;margin:0.75rem 0;">
+      <div style="font-size:1.05rem;font-weight:700;">Backup failures &amp;ndash; Orlando<span style="display:inline-block;font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:6px;background:var(--red);color:#0f172a;margin-left:6px;vertical-align:middle;">10 DAYS</span></div>
+      <div style="font-size:0.85rem;color:#94a3b8;margin-top:4px;">htv001orlrbk001 &rarr; Orlando</div><div style="font-size:0.9rem;color:#cbd5e1;margin-top:4px;"><strong>Object:</strong> WESH-FS1 filesets + volume group</div>
+      <div style="font-size:0.9rem;color:#e2e8f0;margin-top:8px;line-height:1.4;">Snapshot failures: Department_Groups, D drive other folders, User_shares. 10 days running.</div>
+    </div><div style="background:var(--card);border-radius:1rem;border:1px solid #334155;border-left:4px solid var(--red);padding:1.25rem;margin:0.75rem 0;">
+      <div style="font-size:1.05rem;font-weight:700;">SMB mount failures &amp;ndash; Albany<span style="display:inline-block;font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:6px;background:#475569;color:#0f172a;margin-left:6px;vertical-align:middle;">2D SILENT</span></div>
+      <div style="font-size:0.85rem;color:#94a3b8;margin-top:4px;">hts001albrbk001 &rarr; Albany</div><div style="font-size:0.9rem;color:#cbd5e1;margin-top:4px;"><strong>Object:</strong> HNP001ALBRES001 Exec + Knightbook shares</div>
+      <div style="font-size:0.9rem;color:#e2e8f0;margin-top:8px;line-height:1.4;">NOT seen 7/9 or 7/10 &amp;mdash; 2 days silent. May be resolving; auto-closes after 3 silent days.</div>
+    </div><div style="background:var(--card);border-radius:1rem;border:1px solid #334155;border-left:4px solid var(--red);padding:1.25rem;margin:0.75rem 0;">
+      <div style="font-size:1.05rem;font-weight:700;">Node task failures &amp;ndash; Milwaukee<span style="display:inline-block;font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:6px;background:#475569;color:#0f172a;margin-left:6px;vertical-align:middle;">1D SILENT</span></div>
+      <div style="font-size:0.85rem;color:#94a3b8;margin-top:4px;">htv001mlwrbk001 &rarr; Milwaukee</div><div style="font-size:0.9rem;color:#cbd5e1;margin-top:4px;"><strong>Object:</strong> nodes 004070/004072/004136/004373</div>
+      <div style="font-size:0.9rem;color:#e2e8f0;margin-top:8px;line-height:1.4;">Periodic node task failures. Not seen today &amp;mdash; 1 day silent. Related P3 case 01258471 (telemetry) resolved 7/9.</div>
+    </div><div style="background:var(--card);border-radius:1rem;border:1px solid #334155;border-left:4px solid var(--red);padding:1.25rem;margin:0.75rem 0;">
+      <div style="font-size:1.05rem;font-weight:700;">NTP clock offset critical &amp;ndash; Milwaukee<span style="display:inline-block;font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:6px;background:#475569;color:#0f172a;margin-left:6px;vertical-align:middle;">2D SILENT</span></div>
+      <div style="font-size:0.85rem;color:#94a3b8;margin-top:4px;">htv001mlwrbk001 &rarr; Milwaukee</div><div style="font-size:0.9rem;color:#cbd5e1;margin-top:4px;"><strong>Object:</strong> node RVMHM191S004136</div>
+      <div style="font-size:0.9rem;color:#e2e8f0;margin-top:8px;line-height:1.4;">NtpClockOffsetPeers at critical failure level. Not seen 7/9 or 7/10 &amp;mdash; 2 days silent.</div>
     </div>
-    <div class="card critical">
-      <div class="card-title">Snapshot failure <span class="badge critical">CRITICAL</span></div>
-      <div class="loc">htv001kscrbk001 → Kansas City</div>
-      <div class="detail">Snapshot failed for KMBC-MOS (2019) HATMOS SERVER — 9 days running</div>
+<h2 style="font-size:1.2rem;margin:2rem 0 0.5rem;border-bottom:1px solid #334155;padding-bottom:6px;">&#9888;&#65039; Warnings</h2>
+<div style="background:var(--card);border-radius:1rem;border:1px solid #334155;border-left:4px solid var(--amber);padding:1.25rem;margin:0.75rem 0;">
+      <div style="font-size:1.05rem;font-weight:700;">Storage over 90% &amp;ndash; Boston<span style="display:inline-block;font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:6px;background:var(--amber);color:#0f172a;margin-left:6px;vertical-align:middle;">10 DAYS</span></div>
+      <div style="font-size:0.85rem;color:#94a3b8;margin-top:4px;">htv001bosrbk001 &rarr; Boston</div>
+      <div style="font-size:0.9rem;color:#e2e8f0;margin-top:8px;line-height:1.4;">System storage usage over 90% &amp;mdash; cluster may become unstable. 10 days running.</div>
+    </div><div style="background:var(--card);border-radius:1rem;border:1px solid #334155;border-left:4px solid var(--amber);padding:1.25rem;margin:0.75rem 0;">
+      <div style="font-size:1.05rem;font-weight:700;">RBS unreachable &amp;ndash; Jackson<span style="display:inline-block;font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:6px;background:var(--amber);color:#0f172a;margin-left:6px;vertical-align:middle;">10 DAYS</span></div>
+      <div style="font-size:0.85rem;color:#94a3b8;margin-top:4px;">htv001jksrbk001 &rarr; Jackson</div><div style="font-size:0.9rem;color:#cbd5e1;margin-top:4px;"><strong>Object:</strong> 10.158.14.101 / 10.158.36.114</div>
+      <div style="font-size:0.9rem;color:#e2e8f0;margin-top:8px;line-height:1.4;">Rubrik Backup Service timeouts on 2 hosts. 10 days running.</div>
     </div>
-    <div class="card critical">
-      <div class="card-title">Backup failure <span class="badge critical">CRITICAL</span></div>
-      <div class="loc">htv001ftsrbk001 → Fort Smith</div>
-      <div class="detail">Failed backup of Volume Groups: KHOG-COMPUSAT + KHBS-MELOG volumes — 9 days running</div>
+<h2 style="font-size:1.2rem;margin:2rem 0 0.5rem;border-bottom:1px solid #334155;padding-bottom:6px;">&#128203; Support Cases</h2>
+<div style="background:var(--card);border-radius:1rem;border:1px solid #334155;border-left:4px solid var(--red);padding:1.25rem;margin:0.75rem 0;">
+      <div style="font-size:1.05rem;font-weight:700;">P1 Case #01252114 &amp;ndash; Milwaukee<span style="display:inline-block;font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:6px;background:var(--red);color:#0f172a;margin-left:6px;vertical-align:middle;">P1</span><span style="display:inline-block;font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:6px;background:#475569;color:#0f172a;margin-left:6px;vertical-align:middle;">CORROBORATED</span></div>
+      <div style="font-size:0.85rem;color:#94a3b8;margin-top:4px;">htv001mlwrbk001 &rarr; Milwaukee</div>
+      <div style="font-size:0.9rem;color:#e2e8f0;margin-top:8px;line-height:1.4;">Node is Bad (node RVMHM191S004136). Status: In Progress. No case update since 7/7. No reply needed.</div>
+    </div><div style="background:var(--card);border-radius:1rem;border:1px solid #334155;border-left:4px solid var(--amber);padding:1.25rem;margin:0.75rem 0;">
+      <div style="font-size:1.05rem;font-weight:700;">P2 Case #01256607 &amp;ndash; Albany<span style="display:inline-block;font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:6px;background:var(--amber);color:#0f172a;margin-left:6px;vertical-align:middle;">P2</span><span style="display:inline-block;font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:6px;background:var(--green);color:#0f172a;margin-left:6px;vertical-align:middle;">RESOLVED</span></div>
+      <div style="font-size:0.85rem;color:#94a3b8;margin-top:4px;">hts001albrbk001 &rarr; Albany</div>
+      <div style="font-size:0.9rem;color:#e2e8f0;margin-top:8px;line-height:1.4;">Hardware Health Check Failure (DIMM P1-DIMMB1, node RVMHM187S009534). RESOLVED &amp;mdash; second resolution notice received 7/10. No reply needed.</div>
     </div>
-    <div class="card critical">
-      <div class="card-title">Backup failures <span class="badge critical">CRITICAL</span></div>
-      <div class="loc">htv001orlrbk001 → Orlando</div>
-      <div class="detail">WESH-FS1 snapshot failures x4: Department_Groups, D drive other folders, User_shares filesets + volume group — 9 days running</div>
+<h2 style="font-size:1.2rem;margin:2rem 0 0.5rem;border-bottom:1px solid #334155;padding-bottom:6px;">&#128064; Watching</h2>
+<div style="background:var(--card);border-radius:1rem;border:1px solid #334155;border-left:4px solid #334155;padding:1.25rem;margin:0.75rem 0;">
+      <div style="font-size:1.05rem;font-weight:700;">Widespread backup failures &amp;ndash; Louisville<span style="display:inline-block;font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:6px;background:var(--red);color:#0f172a;margin-left:6px;vertical-align:middle;">DAY 1</span><span style="display:inline-block;font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:6px;background:var(--red);color:#0f172a;margin-left:6px;vertical-align:middle;">BIG</span></div>
+      <div style="font-size:0.85rem;color:#94a3b8;margin-top:4px;">hts001lourbk001 &rarr; Louisville</div><div style="font-size:0.9rem;color:#cbd5e1;margin-top:4px;"><strong>Object:</strong> 25+ objects: Splunk data (PBSPL204-207/DS201), BQLIKEM, many volume groups</div>
+      <div style="font-size:0.9rem;color:#e2e8f0;margin-top:8px;line-height:1.4;">EMERGING: widespread backup failures + Rubrik Backup Service unreachable across ~25 Louisville hosts; remote cluster hts001dalrbk002 also unreachable. Root cause looks like RBS/host connectivity. Day 1 &amp;mdash; watch tomorrow. (Known blind-spot cluster, now fully alerting.)</div>
+    </div><div style="background:var(--card);border-radius:1rem;border:1px solid #334155;border-left:4px solid #334155;padding:1.25rem;margin:0.75rem 0;">
+      <div style="font-size:1.05rem;font-weight:700;">MSSQL log backup failure &amp;ndash; Cincinnati<span style="display:inline-block;font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:6px;background:var(--red);color:#0f172a;margin-left:6px;vertical-align:middle;">DAY 1</span></div>
+      <div style="font-size:0.85rem;color:#94a3b8;margin-top:4px;">htv001cinrbk001 &rarr; Cincinnati</div><div style="font-size:0.9rem;color:#cbd5e1;margin-top:4px;"><strong>Object:</strong> fsiconfig / WLWT-FCDB1</div>
+      <div style="font-size:0.9rem;color:#e2e8f0;margin-top:8px;line-height:1.4;">Creating MSSQL log failed &amp;mdash; could not resolve host WLWT-FCDB1. Day 1.</div>
+    </div><div style="background:var(--card);border-radius:1rem;border:1px solid #334155;border-left:4px solid #334155;padding:1.25rem;margin:0.75rem 0;">
+      <div style="font-size:1.05rem;font-weight:700;">Network interface down &amp;ndash; Fort Myers<span style="display:inline-block;font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:6px;background:var(--red);color:#0f172a;margin-left:6px;vertical-align:middle;">DAY 1</span></div>
+      <div style="font-size:0.85rem;color:#94a3b8;margin-top:4px;">hts001fmtrbk001 &rarr; Fort Myers</div><div style="font-size:0.9rem;color:#cbd5e1;margin-top:4px;"><strong>Object:</strong> rketh3 on nodes 009415/009418/009048</div>
+      <div style="font-size:0.9rem;color:#e2e8f0;margin-top:8px;line-height:1.4;">Network interface rketh3 down on 3 nodes. Day 1.</div>
+    </div><div style="background:var(--card);border-radius:1rem;border:1px solid #334155;border-left:4px solid #334155;padding:1.25rem;margin:0.75rem 0;">
+      <div style="font-size:1.05rem;font-weight:700;">Node task failure &amp;ndash; Minneapolis<span style="display:inline-block;font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:6px;background:var(--red);color:#0f172a;margin-left:6px;vertical-align:middle;">DAY 1</span></div>
+      <div style="font-size:0.85rem;color:#94a3b8;margin-top:4px;">htv001mncrbk001 &rarr; Minneapolis</div><div style="font-size:0.9rem;color:#cbd5e1;margin-top:4px;"><strong>Object:</strong> node RVMHM191S005215</div>
+      <div style="font-size:0.9rem;color:#e2e8f0;margin-top:8px;line-height:1.4;">Periodic task failed: Failed to disable telemetry data. Day 1. Same type as resolved Milwaukee case.</div>
+    </div><div style="background:var(--card);border-radius:1rem;border:1px solid #334155;border-left:4px solid #334155;padding:1.25rem;margin:0.75rem 0;">
+      <div style="font-size:1.05rem;font-weight:700;">Cluster unreachable &amp;ndash; Kubra Canada<span style="display:inline-block;font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:6px;background:var(--red);color:#0f172a;margin-left:6px;vertical-align:middle;">DAY 1</span></div>
+      <div style="font-size:0.85rem;color:#94a3b8;margin-top:4px;">KUBCAN1RUBRIKCL1 &rarr; Kubra Canada</div>
+      <div style="font-size:0.9rem;color:#e2e8f0;margin-top:8px;line-height:1.4;">Entire cluster KUBCAN1RUBRIKCL1 unreachable. Day 1.</div>
+    </div><div style="background:var(--card);border-radius:1rem;border:1px solid #334155;border-left:4px solid #334155;padding:1.25rem;margin:0.75rem 0;">
+      <div style="font-size:1.05rem;font-weight:700;">M365 maintained backup failed<span style="display:inline-block;font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:6px;background:var(--red);color:#0f172a;margin-left:6px;vertical-align:middle;">DAY 1</span></div>
+      <div style="font-size:0.85rem;color:#94a3b8;margin-top:4px;">Microsoft 365</div><div style="font-size:0.9rem;color:#cbd5e1;margin-top:4px;"><strong>Object:</strong> directory hearstpm.onmicrosoft.com</div>
+      <div style="font-size:0.9rem;color:#e2e8f0;margin-top:8px;line-height:1.4;">Unable to create maintained backup for M365 directory. Day 1.</div>
+    </div><div style="background:var(--card);border-radius:1rem;border:1px solid #334155;border-left:4px solid #334155;padding:1.25rem;margin:0.75rem 0;">
+      <div style="font-size:1.05rem;font-weight:700;">File retrieval errors &amp;ndash; FDB DR<span style="display:inline-block;font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:6px;background:var(--amber);color:#0f172a;margin-left:6px;vertical-align:middle;">DAY 1</span></div>
+      <div style="font-size:0.85rem;color:#94a3b8;margin-top:4px;">fdbdr-rbkcc-001 &rarr; FDB DR</div><div style="font-size:0.9rem;color:#cbd5e1;margin-top:4px;"><strong>Object:</strong> fileset APP30_cfs_PRD</div>
+      <div style="font-size:0.9rem;color:#e2e8f0;margin-top:8px;line-height:1.4;">Minor file-retrieval errors (6 errors, ~1.64 KB). Day 1. Low severity.</div>
+    </div><div style="background:var(--card);border-radius:1rem;border:1px solid #334155;border-left:4px solid #334155;padding:1.25rem;margin:0.75rem 0;">
+      <div style="font-size:1.05rem;font-weight:700;">Node task failure &amp;ndash; Tampa<span style="display:inline-block;font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:6px;background:#475569;color:#0f172a;margin-left:6px;vertical-align:middle;">2D SILENT</span></div>
+      <div style="font-size:0.85rem;color:#94a3b8;margin-top:4px;">htv001tparbk001 &rarr; Tampa</div><div style="font-size:0.9rem;color:#cbd5e1;margin-top:4px;"><strong>Object:</strong> node RVMHM187S009507</div>
+      <div style="font-size:0.9rem;color:#e2e8f0;margin-top:8px;line-height:1.4;">Periodic node task failure. 2 days silent.</div>
+    </div><div style="background:var(--card);border-radius:1rem;border:1px solid #334155;border-left:4px solid #334155;padding:1.25rem;margin:0.75rem 0;">
+      <div style="font-size:1.05rem;font-weight:700;">Snapshot failure &amp;ndash; New Orleans<span style="display:inline-block;font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:6px;background:#475569;color:#0f172a;margin-left:6px;vertical-align:middle;">2D SILENT</span></div>
+      <div style="font-size:0.85rem;color:#94a3b8;margin-top:4px;">htv001nolrbk001 &rarr; New Orleans</div><div style="font-size:0.9rem;color:#cbd5e1;margin-top:4px;"><strong>Object:</strong> 4099 Station TVDC1</div>
+      <div style="font-size:0.9rem;color:#e2e8f0;margin-top:8px;line-height:1.4;">Fileset snapshot failure. 2 days silent.</div>
+    </div><div style="background:var(--card);border-radius:1rem;border:1px solid #334155;border-left:4px solid #334155;padding:1.25rem;margin:0.75rem 0;">
+      <div style="font-size:1.05rem;font-weight:700;">Storage over 85% &amp;ndash; Baltimore<span style="display:inline-block;font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:6px;background:#475569;color:#0f172a;margin-left:6px;vertical-align:middle;">2D SILENT</span></div>
+      <div style="font-size:0.85rem;color:#94a3b8;margin-top:4px;">htv001balrbk001 &rarr; Baltimore</div>
+      <div style="font-size:0.9rem;color:#e2e8f0;margin-top:8px;line-height:1.4;">System storage over 85%. 2 days silent.</div>
     </div>
-  </section>
-
-  <section>
-    <h2>⚠️ Warnings</h2>
-    <div class="card warning">
-      <div class="card-title">Storage over 90% <span class="badge warning">WARNING</span></div>
-      <div class="loc">htv001bosrbk001 → Boston</div>
-      <div class="detail">System storage usage over 90% — cluster may become unstable — 9 days running</div>
-    </div>
-    <div class="card warning">
-      <div class="card-title">RBS unreachable <span class="badge warning">WARNING</span></div>
-      <div class="loc">htv001jksrbk001 → Jackson</div>
-      <div class="detail">RBS timeouts x2: 10.158.14.101, 10.158.36.114 — 9 days running</div>
-    </div>
-  </section>
-
-  <section>
-    <h2>📋 Support Cases</h2>
-    <div class="card critical">
-      <div class="card-title">🔴 P1 Case #01252114 <span class="badge corroborated">Corroborated</span></div>
-      <div class="loc">htv001mlwrbk001 → Milwaukee — Node is Bad</div>
-      <div class="detail">Node RVMHM191S004136. Status: In Progress. All nodes currently OK, Rubrik still root-causing, update expected within 48h (as of 7/7). No update since. No reply needed.</div>
-    </div>
-    <div class="card green">
-      <div class="card-title">P2 Case #01256607 <span class="badge resolved">RESOLVED</span> <span class="badge corroborated">Corroborated</span></div>
-      <div class="loc">hts001albrbk001 → Albany — Hardware Health Check Failure</div>
-      <div class="detail">DIMM P1-DIMMB1 too many correctable errors, node RVMHM187S009534. Resolved 7/8 — Rubrik cleared stale entries in mce log. No reply needed.</div>
-    </div>
-  </section>
-
-  <section>
-    <h2>👀 Watching</h2>
-    <div class="card watching">
-      <div class="card-title">MSSQL log backup failure (silent 2 days)</div>
-      <div class="loc">htv001mlwrbk001 → Milwaukee (WISN-FCDB1)</div>
-      <div class="detail">Creating MSSQL log failed — agent internal error RBK92070005</div>
-    </div>
-    <div class="card watching">
-      <div class="card-title">Node task failure (silent 1 day)</div>
-      <div class="loc">htv001tparbk001 → Tampa</div>
-      <div class="detail">Periodic node task failure (node RVMHM187S009507)</div>
-    </div>
-    <div class="card watching">
-      <div class="card-title">Snapshot failure (silent 1 day)</div>
-      <div class="loc">htv001nolrbk001 → New Orleans</div>
-      <div class="detail">Failed backup of Fileset '4099 Station TVDC1' from 10.140.38.210</div>
-    </div>
-    <div class="card watching">
-      <div class="card-title">Storage over 85% (silent 1 day)</div>
-      <div class="loc">htv001balrbk001 → Baltimore</div>
-      <div class="detail">System storage usage over 85% full</div>
-    </div>
-  </section>
-
-  <section>
-    <h2>Things 3 Changes</h2>
-    <div class="card green">
-      <div class="card-title">🏁 Closed</div>
-      <div class="detail">Node task failure – Des Moines (3 consecutive days silent)<br>RBS unreachable – Boston (3 consecutive days silent)<br>Snapshot upload failures – Milwaukee (false positive — rotating VMs that self-resolved via retry; tracking switched to cluster+object keys)</div>
-    </div>
-  </section>
-
-  <footer>cigardev.xyz | Rubrik Triage | July 9, 2026</footer>
-</div>
-</body>
-</html>
+<div style="background:#1e293b;border:1px solid #334155;border-radius:0.75rem;padding:0.75rem 1rem;margin:1rem 0;font-size:0.85rem;color:#94a3b8;">&#8505;&#65039; Houston (hts001hourbk001) archival-connect alerts self-healed (each Critical failure paired with a same-second success) &mdash; treated as transient, not tracked.</div>
+<div style="margin-top:2.5rem;padding-top:1rem;border-top:1px solid #334155;color:#64748b;font-size:0.8rem;">cigardev.xyz | Rubrik Triage | 2026-07-10</div>
+</div></body></html>
