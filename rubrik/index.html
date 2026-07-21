@@ -4,194 +4,193 @@
 <meta charset="UTF-8">
 <title>Rubrik Triage</title>
 <style>
-  :root {
-    --bg: #0f172a; --card: #1e293b; --text: #f1f5f9;
-    --accent: #38bdf8; --accent-glow: rgba(56,189,248,0.2);
-    --red: #ef4444; --red-dim: #450a0a;
-    --amber: #f59e0b; --amber-dim: #451a03;
-    --green: #4ade80; --green-dim: #052e16;
-    --cyan: #22d3ee; --cyan-dim: #083344;
-  }
-  body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); margin: 0; }
-  .wrap { max-width: 800px; margin: 0 auto; padding: 1.5rem; }
-  .back { font-size: 0.85rem; color: var(--accent); text-decoration: none; }
-  h1 { font-size: 2rem; margin: 0.5rem 0 0.25rem; background: linear-gradient(90deg, #ffffff, var(--accent)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-  .subtitle { color: #94a3b8; font-size: 0.9rem; margin-bottom: 1.25rem; }
-  .note { color: #94a3b8; font-size: 0.85rem; background: var(--cyan-dim); border: 1px solid #164e63; border-radius: 0.5rem; padding: 0.6rem 0.9rem; margin-bottom: 1rem; }
-  .pills { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
-  .pill { padding: 0.35rem 0.75rem; border-radius: 999px; font-size: 0.85rem; font-weight: 600; }
-  .pill.red { background: var(--red-dim); color: #fca5a5; }
-  .pill.amber { background: var(--amber-dim); color: #fcd34d; }
-  .pill.cyan { background: var(--cyan-dim); color: #67e8f9; }
-  .pill.gray { background: #1e293b; color: #cbd5e1; border: 1px solid #334155; }
-  h2 { font-size: 1.1rem; margin: 1.75rem 0 0.5rem; color: #e2e8f0; }
-  .card { background: var(--card); border-radius: 1rem; border: 1px solid #334155; padding: 1.25rem; margin: 0.75rem 0; border-left: 4px solid #334155; }
-  .card.critical { border-left-color: var(--red); }
-  .card.warning { border-left-color: var(--amber); }
-  .card.reply { border-left-color: var(--cyan); }
-  .card.watching { border-left-color: #334155; }
-  .card.green { border-left-color: var(--green); background: var(--green-dim); }
-  .card-title { font-weight: 700; font-size: 1rem; margin-bottom: 0.35rem; }
-  .badge { display: inline-block; font-size: 0.7rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 0.35rem; margin-left: 0.4rem; vertical-align: middle; }
-  .badge.critical { background: var(--red-dim); color: #fca5a5; }
-  .badge.warning { background: var(--amber-dim); color: #fcd34d; }
-  .badge.reply { background: var(--cyan-dim); color: #67e8f9; }
-  .badge.corrob { background: #1e293b; color: #86efac; border: 1px solid #14532d; }
-  .meta { color: #94a3b8; font-size: 0.85rem; margin: 0.15rem 0; }
-  .detail { color: #cbd5e1; font-size: 0.9rem; margin-top: 0.5rem; }
-  .footer { text-align: center; color: #64748b; font-size: 0.8rem; margin-top: 2.5rem; padding-bottom: 1.5rem; }
+:root {
+  --bg: #0f172a; --card: #1e293b; --text: #f1f5f9;
+  --accent: #38bdf8; --accent-glow: rgba(56,189,248,0.2);
+  --red: #ef4444; --red-dim: #450a0a;
+  --amber: #f59e0b; --amber-dim: #451a03;
+  --green: #4ade80; --green-dim: #052e16;
+  --cyan: #22d3ee; --cyan-dim: #083344;
+}
+body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); margin: 0; }
+.wrap { max-width: 800px; margin: 0 auto; padding: 1.5rem; }
+.back { font-size: 0.85rem; color: var(--accent); text-decoration: none; }
+h1 { font-size: 2rem; margin: 0.5rem 0 0.25rem; background: linear-gradient(90deg, #fff, var(--accent)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.subtitle { color: #94a3b8; font-size: 0.9rem; margin-bottom: 1rem; }
+.note { color: #94a3b8; font-size: 0.85rem; margin: 0.5rem 0 1rem; }
+.pills { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+.pill { border-radius: 999px; padding: 0.35rem 0.9rem; font-size: 0.85rem; font-weight: 600; }
+.pill.red { background: var(--red-dim); color: #fca5a5; }
+.pill.amber { background: var(--amber-dim); color: #fcd34d; }
+.pill.cyan { background: var(--cyan-dim); color: #67e8f9; }
+.pill.gray { background: #334155; color: #cbd5e1; }
+h2 { font-size: 1.1rem; margin: 1.75rem 0 0.5rem; color: #e2e8f0; }
+.card { background: var(--card); border-radius: 1rem; border: 1px solid #334155; padding: 1.25rem; margin: 0.75rem 0; border-left: 4px solid #334155; }
+.card.critical { border-left-color: var(--red); }
+.card.warning { border-left-color: var(--amber); }
+.card.reply { border-left-color: var(--cyan); }
+.card.watching { border-left-color: #64748b; }
+.card-title { font-weight: 700; font-size: 1rem; margin-bottom: 0.35rem; }
+.badge { display: inline-block; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; padding: 0.15rem 0.5rem; border-radius: 0.4rem; margin-left: 0.4rem; vertical-align: middle; }
+.badge.red { background: var(--red-dim); color: #fca5a5; }
+.badge.cyan { background: var(--cyan-dim); color: #67e8f9; }
+.badge.green { background: var(--green-dim); color: #86efac; }
+.meta { color: #94a3b8; font-size: 0.85rem; margin: 0.15rem 0; }
+.detail { color: #cbd5e1; font-size: 0.9rem; margin-top: 0.5rem; line-height: 1.5; }
+.allclear { background: var(--green-dim); border: 1px solid #16a34a; border-radius: 1rem; padding: 1.5rem; text-align: center; font-weight: 600; color: #86efac; }
+.footer { margin-top: 2.5rem; color: #64748b; font-size: 0.8rem; text-align: center; }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <a class="back" href="https://cigardev.xyz">&larr; cigardev.xyz</a>
-  <h1>Rubrik Triage</h1>
-  <div class="subtitle">Last updated: July 20, 2026 at 8:03 AM ET</div>
+<a class="back" href="https://cigardev.xyz">&larr; cigardev.xyz</a>
+<h1>Rubrik Triage</h1>
+<div class="subtitle">Last updated: July 21, 2026 at 10:42 AM ET</div>
 
-  <div class="note">⚠️ Daily Event Report not received today — coverage-gap check skipped.</div>
+<div class="pills">
+  <span class="pill red">🔴 8 Critical</span>
+  <span class="pill amber">⚠️ 1 Warning</span>
+  <span class="pill cyan">🙋 1 Reply</span>
+  <span class="pill gray">👀 7 Watching</span>
+</div>
 
-  <div class="pills">
-    <span class="pill red">🔴 6 Critical</span>
-    <span class="pill amber">⚠️ 1 Warning</span>
-    <span class="pill cyan">🙋 2 Replies</span>
-    <span class="pill gray">👀 9 Watching</span>
-  </div>
+<h2>🔴 Critical</h2>
 
-  <h2>🔴 Critical</h2>
+<div class="card critical">
+  <div class="card-title">Snapshot failure – Kansas City <span class="badge red">Day 21</span></div>
+  <div class="meta">htv001kscrbk001 → Kansas City</div>
+  <div class="meta">Object: KMBC-MOS (2019) HATMOS SERVER</div>
+  <div class="detail">Snapshot/backup failed again today. Continuing unresolved, three weeks running.</div>
+</div>
 
-  <div class="card critical">
-    <div class="card-title">Rubrik: Snapshot failure – Kansas City<span class="badge critical">CRITICAL</span></div>
-    <div class="meta">htv001kscrbk001 → Kansas City</div>
-    <div class="meta">KMBC-MOS (2019) HATMOS SERVER</div>
-    <div class="detail">Snapshot failed again today. 20 days running.</div>
-  </div>
+<div class="card critical">
+  <div class="card-title">Backup failure – Fort Smith <span class="badge red">Day 21</span> <span class="badge cyan">Report only</span></div>
+  <div class="meta">htv001ftsrbk001 → Fort Smith</div>
+  <div class="meta">Object: KHOG-COMPUSAT.CompanyNet.org volumes + KHBS-MELOG</div>
+  <div class="detail">Continues, day 21. Today's confirmation came only from the Daily Event Report (05:19 AM) — no real-time alert email fired for the actual backup failure, only the downstream SLA-violation alert (normally noise). Worth keeping an eye on alert delivery for this cluster.</div>
+</div>
 
-  <div class="card critical">
-    <div class="card-title">Rubrik: Backup failure – Fort Smith<span class="badge critical">CRITICAL</span></div>
-    <div class="meta">htv001ftsrbk001 → Fort Smith</div>
-    <div class="meta">KHOG-COMPUSAT + KHBS-MELOG volumes</div>
-    <div class="detail">Fresh snapshot failure plus RBS-unreachable warning on the same host. 20 days running.</div>
-  </div>
+<div class="card critical">
+  <div class="card-title">Widespread backup failures – Louisville <span class="badge red">Day 12</span></div>
+  <div class="meta">hts001lourbk001 → Louisville</div>
+  <div class="meta">30+ objects: Splunk data, BQLIKEM, PBBLD102, DBQLIKEM100A/B, PBQLIKEM110A/B, PCKEYSCAN101, PCNVR101, PBDC74, CPCNETSVC07, CPCSCCMRS104, PBINTSYS114A, C_Drive, plus a dozen+ RBS-unreachable hosts</div>
+  <div class="detail">Genuine RBS-unreachable warnings (not just SLA-violation noise) confirmed again today. Root cause still looks like RBS/host connectivity. 12 days running.</div>
+</div>
 
-  <div class="card critical">
-    <div class="card-title">Rubrik: Periodic node task failures – Milwaukee<span class="badge critical">CRITICAL</span></div>
-    <div class="meta">htv001mlwrbk001 → Milwaukee</div>
-    <div class="meta">nodes 004070 / 004136 / 004373 (004072 quiet today)</div>
-    <div class="detail">"Failed to disable telemetry data" recurring, day 5.</div>
-  </div>
+<div class="card critical">
+  <div class="card-title">M365 protection failures – hearstpm <span class="badge red">Day 12ish</span></div>
+  <div class="meta">M365/Polaris → Microsoft 365</div>
+  <div class="meta">Object: directory hearstpm.onmicrosoft.com</div>
+  <div class="detail">Failed scheduled metadata refresh, continuing since 7/10. Not reconfirmed today (1 day silent) — will auto-close if quiet 2 more days.</div>
+</div>
 
-  <div class="card critical">
-    <div class="card-title">Rubrik: M365 protection failures – hearstpm<span class="badge critical">CRITICAL</span></div>
-    <div class="meta">M365/Polaris → Microsoft 365</div>
-    <div class="meta">directory hearstpm.onmicrosoft.com</div>
-    <div class="detail">Scheduled metadata refresh failing again (internal server error), continuing since 7/10 (11 days).</div>
-  </div>
+<div class="card critical">
+  <div class="card-title">Network interface down – Fort Myers <span class="badge red">Day 11</span></div>
+  <div class="meta">hts001fmtrbk001 → Fort Myers</div>
+  <div class="meta">Object: nodes RVMHM187S009415/009418/009048, port rketh3</div>
+  <div class="detail">Interface down on 3 nodes. Not reconfirmed today (1 day silent).</div>
+</div>
 
-  <div class="card critical">
-    <div class="card-title">Rubrik: Network interface down – Fort Myers<span class="badge critical">CRITICAL</span></div>
-    <div class="meta">hts001fmtrbk001 → Fort Myers</div>
-    <div class="meta">nodes 009415 / 009418 / 009048, port rketh3</div>
-    <div class="detail">All 3 nodes down again today, 11th day straight.</div>
-  </div>
+<div class="card critical">
+  <div class="card-title">Periodic node task failures – Milwaukee <span class="badge red">Day 6</span></div>
+  <div class="meta">htv001mlwrbk001 → Milwaukee</div>
+  <div class="meta">Object: nodes RVMHM191S004070/004072/004136/004373</div>
+  <div class="detail">'Failed to disable telemetry data' task failures continue. Node 004070 hit again today.</div>
+</div>
 
-  <div class="card critical">
-    <div class="card-title">Rubrik: Widespread backup failures – Louisville<span class="badge critical">CRITICAL</span></div>
-    <div class="meta">hts001lourbk001 → Louisville</div>
-    <div class="meta">30+ objects (Splunk feeds, BQLIKEM, PBBLD102, DBQLIKEM/PBQLIKEM, C_Drive, and more) + RBS-unreachable hosts</div>
-    <div class="detail">Continues 11th day. Remote cluster hts001dalrbk002 still unreachable. Root cause looks like RBS/host connectivity. (SLA policy-violation noise from the same misses excluded.)</div>
-  </div>
+<div class="card critical">
+  <div class="card-title">Health monitor critical – Westbrook (NtpClockOffsetPeers) <span class="badge red">Day 2</span> <span class="badge green">New task</span></div>
+  <div class="meta">htv001wbkrbk001 → Westbrook, ME (WMTW)</div>
+  <div class="meta">Object: nodes RVMHM188S005351/005414/005439</div>
+  <div class="detail">540+ consecutive NtpClockOffsetPeers failures at critical level. Coincides with the open NodeBad support case (01266675) on this cluster.</div>
+</div>
 
-  <h2>⚠️ Warnings</h2>
+<div class="card critical">
+  <div class="card-title">Backup/upload failures – Westbrook (multiple objects) <span class="badge red">Day 2</span> <span class="badge green">New task</span></div>
+  <div class="meta">htv001wbkrbk001 → Westbrook, ME (WMTW)</div>
+  <div class="meta">WMTW-WSUSR, WMTW-WXMSGR, FileServer Data Files, fsiconfigABX [day 1]; WMTW-VCSA, WMTW-ADIT1, WMTW-FILEMOVER, FLORICAL_SCHEDULES_WPXT [new today]</div>
+  <div class="detail">Correlated snapshot/upload/node-task failures tied to the NodeBad case. WMTW-WSUSR failed again; 4 more objects newly failed overnight.</div>
+</div>
 
-  <div class="card warning">
-    <div class="card-title">Rubrik: RBS unreachable – Jackson<span class="badge warning">WARNING</span></div>
-    <div class="meta">htv001jksrbk001 → Jackson</div>
-    <div class="meta">RBS hosts 10.158.14.101 / 10.158.36.114</div>
-    <div class="detail">RBS timeouts x2 continue, 20 days running.</div>
-  </div>
+<h2>⚠️ Warnings</h2>
 
-  <h2>📋 Support Cases</h2>
+<div class="card warning">
+  <div class="card-title">RBS unreachable – Jackson <span class="badge red">Day 21</span></div>
+  <div class="meta">htv001jksrbk001 → Jackson</div>
+  <div class="meta">Object: RBS hosts 10.158.14.101 / 10.158.36.114</div>
+  <div class="detail">RBS timeouts on both hosts continue.</div>
+</div>
 
-  <div class="card critical">
-    <div class="card-title">🔴 P1 Case #01266675 – Westbrook (Node is Bad)<span class="badge critical">CRITICAL</span> <span class="badge reply">Reply needed</span> <span class="badge corrob">Corroborated</span></div>
-    <div class="meta">htv001wbkrbk001 → Westbrook, ME (WMTW)</div>
-    <div class="detail">NEW today. Proactive NodeBad case (node 005439), opened 7/19. Waiting for Customer Input — Rubrik is asking us to enable the support tunnel and confirm whether any maintenance/outage occurred. Cluster has active NtpClockOffsetPeers + snapshot/upload criticals today, so this is corroborated and opened immediately.</div>
-  </div>
+<h2>📋 Support Cases</h2>
 
-  <div class="card critical">
-    <div class="card-title">🔴 P1 Case #01252114 – Milwaukee (Node is Bad)<span class="badge critical">CRITICAL</span> <span class="badge reply">Reply needed</span> <span class="badge corrob">Corroborated</span></div>
-    <div class="meta">htv001mlwrbk001 → Milwaukee</div>
-    <div class="detail">Waiting for Customer Input. 7/18 update again asks us to enable the support tunnel for cluster health check — flipping to reply-needed. Cluster remains active with today's criticals.</div>
-  </div>
+<div class="card watching">
+  <div class="card-title">P1 Case #01252114 – Milwaukee (Node is Bad) <span class="badge green">No reply needed</span> <span class="badge cyan">Corroborated</span></div>
+  <div class="meta">htv001mlwrbk001 → Milwaukee</div>
+  <div class="detail">Good news: 7/20 update reports all 4 nodes now OK. Rubrik is monitoring for 48–72 hrs before closing.</div>
+</div>
 
-  <div class="card warning">
-    <div class="card-title">⚠️ P2 Case #01256607 – Albany (Hardware Health Check Failure) — RESOLVED<span class="badge warning">WARNING</span></div>
-    <div class="meta">hts001albrbk001 → Albany</div>
-    <div class="detail">DIMM correctable errors, node 009534. Resolved + survey sent 7/16. No reply needed.</div>
-  </div>
+<div class="card watching">
+  <div class="card-title">P2 Case #01256607 – Albany (Hardware Health Check) <span class="badge green">Resolved</span></div>
+  <div class="meta">hts001albrbk001 → Albany</div>
+  <div class="detail">DIMM correctable errors — resolved and closed out on 7/16. No reply needed.</div>
+</div>
 
-  <h2>👀 Watching</h2>
+<div class="card reply">
+  <div class="card-title">P1 Case #01266675 – Westbrook (Node is Bad) <span class="badge cyan">Reply needed</span> <span class="badge cyan">Corroborated</span></div>
+  <div class="meta">htv001wbkrbk001 → Westbrook, ME (WMTW)</div>
+  <div class="detail">Rubrik says the support tunnel is still closed and is asking Scott to re-check/re-enable it on cluster 75f35cbf-c55d-45d8-a8e5-c35426e71e1b. Cluster remains active with today's criticals so still corroborated.</div>
+</div>
 
-  <div class="card watching">
-    <div class="card-title">Backup/upload failures – Westbrook (multiple objects)</div>
-    <div class="meta">htv001wbkrbk001 → Westbrook, ME · Day 1</div>
-    <div class="detail">WMTW-WSUSR, WMTW-WXMSGR, FileServer Data Files (wmtw-fs1), fsiconfigABX all failed snapshot/upload overnight — likely tied to the new NodeBad case on this cluster.</div>
-  </div>
+<h2>👀 Watching (Day 1–2, not yet escalated)</h2>
 
-  <div class="card watching">
-    <div class="card-title">Health monitor critical – Westbrook (NtpClockOffsetPeers)</div>
-    <div class="meta">htv001wbkrbk001 → Westbrook, ME · Day 1</div>
-    <div class="detail">540+ consecutive failures across 3 nodes on this new cluster.</div>
-  </div>
+<div class="card watching">
+  <div class="card-title">MSSQL log backup failure – Albuquerque (KOAT-FCDB1) <span class="badge">Day 1</span></div>
+  <div class="meta">htv001abqrbk001 → Albuquerque (KOAT) — new cluster</div>
+  <div class="detail">Unable to resolve host name KOAT-FCDB1.CompanyNet.Org for FSIAcquisition MSSQL log backup.</div>
+</div>
 
-  <div class="card watching">
-    <div class="card-title">Unable to upload snapshot – Milwaukee (WISN-MOS)</div>
-    <div class="meta">htv001mlwrbk001 → Milwaukee · Day 1</div>
-    <div class="detail">Different object than the now-closed WISN-MSTOR Azure-upload issue.</div>
-  </div>
+<div class="card watching">
+  <div class="card-title">Unable to upload snapshot – Albuquerque (KOAT-MM1) <span class="badge">Day 1</span></div>
+  <div class="meta">htv001abqrbk001 → Albuquerque (KOAT)</div>
+  <div class="detail">Failed to upload snapshot of KOAT-MM1 to Azure.</div>
+</div>
 
-  <div class="card watching">
-    <div class="card-title">Periodic node task failures – Des Moines</div>
-    <div class="meta">htv001dsmrbk001 → Des Moines · Day 1</div>
-    <div class="detail">"Failed to disable telemetry data" on nodes 008994 / 009403. New cluster.</div>
-  </div>
+<div class="card watching">
+  <div class="card-title">Periodic node task failure – Albuquerque <span class="badge">Day 1</span></div>
+  <div class="meta">htv001abqrbk001 → Albuquerque (KOAT)</div>
+  <div class="detail">'Failed to disable telemetry data' on node RVMHM189S000385.</div>
+</div>
 
-  <div class="card watching">
-    <div class="card-title">RBS unreachable – Boston (WCVB-VANTAGE)</div>
-    <div class="meta">htv001bosrbk001 → Boston · Day 1</div>
-    <div class="detail">Different issue than the now-closed storage-over-90% alert.</div>
-  </div>
+<div class="card watching">
+  <div class="card-title">System storage usage alert – Boston <span class="badge">Day 1 (new occurrence)</span></div>
+  <div class="meta">htv001bosrbk001 → Boston</div>
+  <div class="detail">Cluster storage over 90% full again — previous instance of this alert was closed 7/20.</div>
+</div>
 
-  <div class="card watching">
-    <div class="card-title">MSSQL log backup failure – Milwaukee (WISN-FCDB1)</div>
-    <div class="meta">htv001mlwrbk001 → Milwaukee · not seen since 7/17</div>
-    <div class="detail">Agent transport error. No recurrence since first sighting.</div>
-  </div>
+<div class="card watching">
+  <div class="card-title">Unable to upload snapshot – Milwaukee (WISN-MOS) <span class="badge">Day 1</span></div>
+  <div class="meta">htv001mlwrbk001 → Milwaukee</div>
+  <div class="detail">Not seen since 7/20.</div>
+</div>
 
-  <div class="card watching">
-    <div class="card-title">MSSQL backup failures – Minneapolis (WMUR-ABX1, 4 databases)</div>
-    <div class="meta">htv001mncrbk001 → Minneapolis · not seen since 7/17</div>
-    <div class="detail">No recurrence since first sighting.</div>
-  </div>
+<div class="card watching">
+  <div class="card-title">Periodic node task failures – Des Moines <span class="badge">Day 1</span></div>
+  <div class="meta">htv001dsmrbk001 → Des Moines</div>
+  <div class="detail">Not seen since 7/20.</div>
+</div>
 
-  <div class="card watching">
-    <div class="card-title">Periodic node task failure – Minneapolis</div>
-    <div class="meta">htv001mncrbk001 → Minneapolis · not seen since 7/17</div>
-    <div class="detail">Node 005696. No recurrence since first sighting.</div>
-  </div>
+<div class="card watching">
+  <div class="card-title">RBS unreachable – Boston (WCVB-VANTAGE) <span class="badge">Day 1</span></div>
+  <div class="meta">htv001bosrbk001 → Boston</div>
+  <div class="detail">Not seen since 7/20.</div>
+</div>
 
-  <div class="card watching">
-    <div class="card-title">File retrieval errors – fdbdr-rbkcc-001 (APP30_cfs_PRD)</div>
-    <div class="meta">fdbdr-rbkcc-001 · not seen since 7/17</div>
-    <div class="detail">No recurrence since first sighting.</div>
-  </div>
+<h2>Things 3 Changes</h2>
+<div class="card watching">
+  <div class="detail">✅ Created: 2 new tasks (Westbrook health monitor, Westbrook backup/upload failures — both promoted from Day 1 watching to confirmed).<br>🏁 Closed: none.<br>🧹 Pruned from tracking (never had tasks, quiet 4+ days): Milwaukee WISN-FCDB1 MSSQL log, Minneapolis WMUR-ABX1 MSSQL, Minneapolis node 005696, fdbdr-rbkcc-001 fileset errors.</div>
+</div>
 
-  <h2>Things 3 Changes</h2>
-  <div class="card green">
-    <div class="detail">✅ Created: P1 Case #01266675 – Westbrook (corroborated Day 1)<br>🏁 Closed: WISN-MSTOR (Milwaukee), NtpClockOffsetPeers (Milwaukee), Azure refresh HT-HTS-SUB, WESH-FS1 (Orlando), Storage 90%+ (Boston) — all 3+ days silent</div>
-  </div>
-
-  <div class="footer">cigardev.xyz | Rubrik Triage | July 20, 2026</div>
+<div class="footer">cigardev.xyz | Rubrik Triage | July 21, 2026</div>
 </div>
 </body>
 </html>
