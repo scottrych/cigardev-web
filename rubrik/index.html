@@ -15,161 +15,175 @@
 body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); margin: 0; }
 .wrap { max-width: 800px; margin: 0 auto; padding: 1.5rem; }
 .back { font-size: 0.85rem; color: var(--accent); text-decoration: none; }
-h1 { font-size: 2rem; margin: 0.5rem 0 0.25rem; background: linear-gradient(90deg,#ffffff,var(--accent)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.subtitle { color: #94a3b8; font-size: 0.9rem; margin-bottom: 1.25rem; }
+h1 { font-size: 2rem; margin: 0.5rem 0 0.2rem; background: linear-gradient(90deg, #fff, var(--accent)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.subtitle { color: #94a3b8; font-size: 0.9rem; margin-bottom: 1rem; }
+.note { color: #94a3b8; font-size: 0.85rem; margin-bottom: 1rem; }
 .pills { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
-.pill { padding: 0.35rem 0.75rem; border-radius: 999px; font-size: 0.85rem; font-weight: 600; }
+.pill { border-radius: 999px; padding: 0.35rem 0.9rem; font-size: 0.85rem; font-weight: 600; }
 .pill.red { background: var(--red-dim); color: #fca5a5; }
 .pill.amber { background: var(--amber-dim); color: #fcd34d; }
 .pill.cyan { background: var(--cyan-dim); color: #67e8f9; }
-.pill.gray { background: #1e293b; color: #94a3b8; border: 1px solid #334155; }
-h2 { font-size: 1.1rem; color: #cbd5e1; margin: 1.75rem 0 0.5rem; }
-.card { background: var(--card); border-radius: 1rem; border: 1px solid #334155; padding: 1.25rem; margin: 0.75rem 0; }
-.card.critical { border-left: 4px solid var(--red); }
-.card.warning { border-left: 4px solid var(--amber); }
-.card.reply { border-left: 4px solid var(--cyan); }
-.card.watching { border-left: 4px solid #334155; }
-.card.green { border-left: 4px solid var(--green); }
-.card-title { font-weight: 700; font-size: 1rem; margin-bottom: 0.35rem; }
-.badge { display: inline-block; font-size: 0.7rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 999px; margin-left: 0.5rem; vertical-align: middle; }
-.badge.red { background: var(--red-dim); color: #fca5a5; }
-.badge.amber { background: var(--amber-dim); color: #fcd34d; }
-.badge.cyan { background: var(--cyan-dim); color: #67e8f9; }
-.badge.green { background: var(--green-dim); color: #86efac; }
+.pill.gray { background: #1e293b; color: #cbd5e1; border: 1px solid #334155; }
+h2 { font-size: 1.15rem; margin: 1.75rem 0 0.5rem; color: #e2e8f0; }
+.card { background: var(--card); border-radius: 1rem; border: 1px solid #334155; padding: 1.25rem; margin: 0.75rem 0; border-left: 4px solid #334155; }
+.card.critical { border-left-color: var(--red); }
+.card.warning { border-left-color: var(--amber); }
+.card.reply { border-left-color: var(--cyan); }
+.card.watching { border-left-color: #334155; }
+.card .title { font-weight: 700; font-size: 1rem; margin-bottom: 0.3rem; }
+.badge { display: inline-block; font-size: 0.7rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 0.4rem; margin-left: 0.4rem; vertical-align: middle; }
+.badge.critical { background: var(--red-dim); color: #fca5a5; }
+.badge.warning { background: var(--amber-dim); color: #fcd34d; }
+.badge.reply { background: var(--cyan-dim); color: #67e8f9; }
+.badge.corrob { background: #052e16; color: var(--green); }
 .meta { color: #94a3b8; font-size: 0.85rem; margin: 0.15rem 0; }
-.detail { font-size: 0.9rem; margin-top: 0.5rem; color: #e2e8f0; }
-.note { color: #94a3b8; font-size: 0.85rem; margin: 0.5rem 0 1rem; }
-footer { text-align: center; color: #64748b; font-size: 0.8rem; margin-top: 2.5rem; padding-bottom: 1rem; }
+.detail { color: #cbd5e1; font-size: 0.9rem; margin-top: 0.5rem; line-height: 1.4; }
+.allclear { background: var(--green-dim); border: 1px solid #16a34a; border-left: 4px solid var(--green); border-radius: 1rem; padding: 1.25rem; color: #bbf7d0; font-weight: 600; }
+footer { margin-top: 2.5rem; color: #64748b; font-size: 0.8rem; text-align: center; }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <a class="back" href="https://cigardev.xyz">&larr; cigardev.xyz</a>
-  <h1>Rubrik Triage</h1>
-  <div class="subtitle">Last updated: August 13, 2026 at 9:04 AM ET</div>
+<a class="back" href="https://cigardev.xyz">← cigardev.xyz</a>
+<h1>Rubrik Triage</h1>
+<div class="subtitle">Last updated: August 14, 2026 at 9:04 AM ET</div>
 
-  <div class="pills">
-    <span class="pill red">🔴 9 Critical</span>
-    <span class="pill amber">⚠️ 2 Warnings</span>
-    <span class="pill cyan">🙋 1 Reply</span>
-    <span class="pill gray">👀 2 Watching</span>
-  </div>
+<div class="pills">
+<span class="pill red">🔴 8 Critical</span>
+<span class="pill amber">⚠️ 4 Warnings</span>
+<span class="pill cyan">🙋 1 Reply</span>
+<span class="pill gray">👀 2 Watching</span>
+</div>
 
-  <h2>🔴 Critical</h2>
+<h2>🔴 Critical</h2>
 
-  <div class="card critical">
-    <div class="card-title">Periodic node task failures – Milwaukee<span class="badge red">CRITICAL</span></div>
-    <div class="meta">htv001mlwrbk001 → Milwaukee</div>
-    <div class="meta">Nodes RVMHM191S004070, RVMHM191S004072, RVMHM191S004136, RVMHM191S004373</div>
-    <div class="detail">Node task failure recurred again 8/13 on nodes 004070, 004373 (x2), plus 004136 snapshot upload failure. Nearly 4 weeks unresolved.</div>
-  </div>
+<div class="card critical">
+<div class="title">Rubrik: Widespread backup failures - Louisville <span class="badge critical">CRITICAL</span></div>
+<div class="meta">hts001lourbk001 → Louisville</div>
+<div class="meta">25+ objects (Splunk feeds, BQLIKEM, PBDC74, CPCNETSVC07, PBBLD102, DBQLIKEM100A/B, PCKEYSCAN101, PCNVR101, E Data backup, PBSPL202-207, PBINTSYS114A) plus RBS-unreachable hosts</div>
+<div class="detail">Confirmed again 8/14 — 20+ Critical backup failures, fully matched by Daily Event Report (no report-only gap this cluster). Over 6 weeks running. No support case open.</div>
+</div>
 
-  <div class="card critical">
-    <div class="card-title">Snapshot failure – Kansas City<span class="badge red">CRITICAL</span></div>
-    <div class="meta">htv001kscrbk001 → Kansas City</div>
-    <div class="meta">KMBC-MOS (2019) HATMOS SERVER</div>
-    <div class="detail">Snapshot backup failed again 8/13 per Daily Event Report. Recurring on/off since 7/1, over 6 weeks unresolved.</div>
-  </div>
+<div class="card critical">
+<div class="title">Rubrik: Backup/upload failures – Westbrook (multiple objects) <span class="badge critical">CRITICAL</span></div>
+<div class="meta">htv001wbkrbk001 → Westbrook, ME (WMTW)</div>
+<div class="meta">WMTW-PDQ, WMTW-MOS, node task failures 005351/005414/005439, Florical MSSQL group</div>
+<div class="detail">Recurred again 8/14: WMTW-PDQ/WMTW-MOS failures, node task failures, NtpClockOffsetPeers on 005414, Florical MSSQL upload failures. Composite issue continuing since 7/20 (nearly 4 weeks).</div>
+</div>
 
-  <div class="card critical">
-    <div class="card-title">Network interface down – Fort Myers<span class="badge red">CRITICAL</span></div>
-    <div class="meta">hts001fmtrbk001 → Fort Myers</div>
-    <div class="meta">Nodes RVMHM187S009415, RVMHM187S009048, RVMHM187S009418</div>
-    <div class="detail">Recurred again 8/13 on all 3 nodes. hts0xx cluster — not covered by Daily Event Report cross-check. Continuing since 7/10, nearly 5 weeks.</div>
-  </div>
+<div class="card critical">
+<div class="title">Rubrik: Periodic node task failures – Milwaukee <span class="badge critical">CRITICAL</span></div>
+<div class="meta">htv001mlwrbk001 → Milwaukee</div>
+<div class="meta">Nodes RVMHM191S004070, 004072, 004136, 004373</div>
+<div class="detail">Recurred again 8/14: task failures plus NtpClockOffsetPeers critical on 004072. Nearly 4 weeks unresolved.</div>
+</div>
 
-  <div class="card critical">
-    <div class="card-title">Widespread backup failures – Louisville<span class="badge red">CRITICAL</span></div>
-    <div class="meta">hts001lourbk001 → Louisville</div>
-    <div class="meta">25+ objects (Splunk feeds, BQLIKEM, PBDC74, CPCNETSVC07, PBBLD102, DBQLIKEM100A/B, PCKEYSCAN101, PCNVR101, E Data backup, PBSPL202-207) plus 20+ C_Drive filesets and RBS-unreachable hosts</div>
-    <div class="detail">Confirmed again 8/13 — 18+ Critical backup failures matched by Daily Event Report (full coverage, no report-only gap this cluster). Over 6 weeks running. No support case open.</div>
-  </div>
+<div class="card critical">
+<div class="title">Rubrik: Network interface down - Fort Myers <span class="badge critical">CRITICAL</span></div>
+<div class="meta">hts001fmtrbk001 → Fort Myers</div>
+<div class="meta">Nodes RVMHM187S009415, 009048, 009418</div>
+<div class="detail">Recurred again 8/14 on all 3 nodes. hts0xx cluster — not covered by Daily Event Report cross-check. Continuing since 7/10, over 5 weeks.</div>
+</div>
 
-  <div class="card critical">
-    <div class="card-title">Backup failure – Fort Smith<span class="badge red">CRITICAL</span></div>
-    <div class="meta">htv001ftsrbk001 → Fort Smith, AR (KHBS/KHOG)</div>
-    <div class="meta">KHOG-COMPUSAT.CompanyNet.org (Windows Fileset KHBSKHOG + Volume Group)</div>
-    <div class="detail">Recurred again 8/13, confirmed via real-time Critical alerts and Daily Event Report. Longstanding issue since 8/3, still unresolved.</div>
-  </div>
+<div class="card critical">
+<div class="title">Rubrik: Backup failure – Fort Smith <span class="badge critical">CRITICAL</span></div>
+<div class="meta">htv001ftsrbk001 → Fort Smith, AR (KHBS/KHOG)</div>
+<div class="meta">KHOG-COMPUSAT.CompanyNet.org (Windows Fileset + Volume Group)</div>
+<div class="detail">Recurred again 8/14, confirmed via real-time Critical alerts. Longstanding issue since 8/3, still unresolved.</div>
+</div>
 
-  <div class="card critical">
-    <div class="card-title">M365 protection failures – hearstpm<span class="badge red">CRITICAL</span></div>
-    <div class="meta">Rubrik Security Cloud → Cloud / M365</div>
-    <div class="meta">hearstpm.onmicrosoft.com</div>
-    <div class="detail">Critical unable-to-create-maintained-backup and metadata-refresh Warning both recurred again 8/13. Needs Entra ID app registration reconfiguration — 5 weeks unresolved.</div>
-  </div>
+<div class="card critical">
+<div class="title">Rubrik: Snapshot failure – New Orleans (WDSU) <span class="badge critical">CRITICAL</span></div>
+<div class="meta">htv001nolrbk001 → New Orleans, LA (WDSU)</div>
+<div class="meta">Fileset C:\Florical Folder from 10.140.14.93</div>
+<div class="detail">Snapshot backup failed 2 consecutive days (8/13, 8/14). Promoted to confirmed and Things task opened per the 2-day rule.</div>
+</div>
 
-  <div class="card critical">
-    <div class="card-title">Backup/upload failures – Westbrook (multiple objects)<span class="badge red">CRITICAL</span></div>
-    <div class="meta">htv001wbkrbk001 → Westbrook, ME (WMTW)</div>
-    <div class="meta">Node task failures 005351/005414/005439 + WMTW-FCDB1 composite (VCSA, WSUSR, WXMSGR, ADIT1, FILEMOVER, PDQ, MOS, WEB, FileServer Data Files, fsiconfig/FSIDBSQL, FLORICAL_ASSET_COLLECTION)</div>
-    <div class="detail">Node task failures on 005414 and 005439 recurred again 8/13, plus NtpClockOffsetPeers critical alert on 005414. Composite issue continuing since 7/20 (3+ weeks).</div>
-  </div>
+<div class="card critical">
+<div class="title">Rubrik: Backup failure – Boston (4099 Station TWC Core 2) <span class="badge critical">CRITICAL</span></div>
+<div class="meta">htv001bosrbk001 → Boston</div>
+<div class="meta">4099 Station TWC Core 2 from WCVB-TVSDC2.CompanyNet.org</div>
+<div class="detail">Snapshot failed — insufficient disk space to back up '4099 Station TWC Core 2'. Day 1 watching only; needs to recur tomorrow to escalate.</div>
+</div>
 
-  <div class="card critical">
-    <div class="card-title">Azure subscription refresh failure – HT-HTS-SUB<span class="badge red">CRITICAL</span><span class="badge amber">SILENT 2/3 DAYS</span></div>
-    <div class="meta">Rubrik Security Cloud → Cloud / Azure</div>
-    <div class="meta">HT-HTS-SUB subscription</div>
-    <div class="detail">Silent again 8/13 — today's scheduled refresh succeeded (Info). 2 days silent so far; will close after 3rd consecutive silent day.</div>
-  </div>
+<div class="card critical">
+<div class="title">Rubrik: Node task failure – Manchester (005696) <span class="badge critical">CRITICAL</span></div>
+<div class="meta">htv001mncrbk001 → Manchester, NH (WMUR)</div>
+<div class="meta">Node RVMHM191S005696</div>
+<div class="detail">Periodic node task failed (disable telemetry data). Day 1 watching only.</div>
+</div>
 
-  <div class="card critical">
-    <div class="card-title">Archival connection failure – Albany<span class="badge red">CRITICAL</span><span class="badge amber">SILENT 2/3 DAYS</span></div>
-    <div class="meta">hts001albrbk001 → Albany (inferred from cluster code)</div>
-    <div class="meta">GCP:sla-3002-atu-rbk archival location</div>
-    <div class="detail">Silent again 8/13 — no alert and not in today's Daily Event Report. 2 days silent so far; will close after 3rd consecutive silent day.</div>
-  </div>
+<h2>⚠️ Warnings</h2>
 
-  <h2>⚠️ Warnings</h2>
+<div class="card warning">
+<div class="title">Rubrik: RBS unreachable – Jackson <span class="badge warning">WARNING</span></div>
+<div class="meta">htv001jksrbk001 → Jackson</div>
+<div class="meta">10.158.14.101, 10.158.36.114</div>
+<div class="detail">Same 2 hosts unreachable again 8/14. Unresolved 6+ weeks running.</div>
+</div>
 
-  <div class="card warning">
-    <div class="card-title">RBS unreachable – Jackson<span class="badge amber">WARNING</span></div>
-    <div class="meta">htv001jksrbk001 → Jackson</div>
-    <div class="meta">10.158.14.101, 10.158.36.114</div>
-    <div class="detail">Same 2 hosts unreachable again 8/13. Unresolved 6+ weeks running.</div>
-  </div>
+<div class="card warning">
+<div class="title">Rubrik: Storage over 90% full – Boston <span class="badge warning">WARNING</span></div>
+<div class="meta">htv001bosrbk001 → Boston</div>
+<div class="detail">Storage still over 90% full, recurred again 8/14.</div>
+</div>
 
-  <div class="card warning">
-    <div class="card-title">Storage over 90% full – Boston<span class="badge amber">WARNING</span></div>
-    <div class="meta">htv001bosrbk001 → Boston</div>
-    <div class="detail">Storage still over 90% full, recurred again 8/13. New today: WCVB-TRIA1 backup service unreachable — tracked separately below.</div>
-  </div>
+<div class="card warning">
+<div class="title">Rubrik: M365 protection failures - hearstpm <span class="badge warning">CRITICAL alert / tracked as warning</span></div>
+<div class="meta">Rubrik Security Cloud → Cloud / M365</div>
+<div class="meta">hearstpm.onmicrosoft.com</div>
+<div class="detail">Critical unable-to-create-maintained-backup recurred again 8/14, plus a new M365 Metadata Refresh Failed warning. Needs Entra ID app registration reconfiguration — 5+ weeks unresolved.</div>
+</div>
 
-  <h2>📋 Support Cases</h2>
+<div class="card warning">
+<div class="title">Rubrik: Backup warning – fdbdr-rbkcc-001 (APP30_cfs_PRD) <span class="badge warning">WARNING</span></div>
+<div class="meta">fdbdr-rbkcc-001 → Unknown (new cluster, not previously tracked)</div>
+<div class="meta">APP30_cfs_PRD</div>
+<div class="detail">Some files cannot be retrieved due to errors during backup operation. Day 1 watching only.</div>
+</div>
 
-  <div class="card critical">
-    <div class="card-title">P1 Case #01278151 – htv001mncrbk001 (Node is Bad)<span class="badge red">P1</span><span class="badge green">CORROBORATED</span><span class="badge cyan">REPLY NEEDED</span></div>
-    <div class="meta">htv001mncrbk001 → Manchester, NH (WMUR)</div>
-    <div class="meta">Node RVMHM189S005405</div>
-    <div class="detail">No new correspondence from Rubrik Support since 8/7. Corroborating vCenter alert (10.161.54.50) did not recur 8/13 — last seen 8/12. Reply still needed on Scott's end for tunnel access request.</div>
-  </div>
+<h2>☁️ Rubrik Support Cases</h2>
 
-  <div class="card green">
-    <div class="card-title">P1 Case #01285209 – Plattsburgh (Node is Bad)<span class="badge green">RESOLVED</span></div>
-    <div class="meta">htv001wptzrbk01 → Plattsburgh, NY (WPTZ)</div>
-    <div class="meta">Node RVMHM189S000427</div>
-    <div class="detail">RESOLVED 8/12 6:27 PM by Rubrik Support: "power loss triggered alert, cluster is stable now." No reply needed. Task left open for Scott to close manually.</div>
-  </div>
+<div class="card critical">
+<div class="title">Rubrik: P1 Case #01278151 – htv001mncrbk001 (Node is Bad) <span class="badge reply">Reply needed</span> <span class="badge corrob">Corroborated</span></div>
+<div class="meta">htv001mncrbk001 → Manchester, NH (WMUR)</div>
+<div class="meta">Node RVMHM189S005405</div>
+<div class="detail">No new correspondence from Rubrik Support since 8/7. New critical node-task-failure alert 8/14 on same cluster (different node, RVMHM191S005696) keeps corroboration alive. Reply still needed from Scott for the tunnel access request.</div>
+</div>
 
-  <h2>👀 Watching (Day 1)</h2>
+<div class="card watching">
+<div class="title">Rubrik: P1 Case #01252114 – Milwaukee (Node is Bad) [RESOLVED]</div>
+<div class="detail">Resolved by Rubrik Support 8/5. No reply needed — task left open for Scott to close manually.</div>
+</div>
 
-  <div class="card watching">
-    <div class="card-title">Snapshot failure – New Orleans (WDSU)<span class="badge red">CRITICAL</span></div>
-    <div class="meta">htv001nolrbk001 → New Orleans, LA (WDSU) — inferred from cluster code</div>
-    <div class="meta">Fileset C:\Florical Folder from 10.140.14.93</div>
-    <div class="detail">Snapshot backup failed, 8/13. Day 1 watching only — needs to recur tomorrow to escalate to a task.</div>
-  </div>
+<div class="card watching">
+<div class="title">Rubrik: P1 Case #01285209 – Plattsburgh (Node is Bad) [RESOLVED]</div>
+<div class="detail">Resolved 8/12 6:27 PM: power loss triggered the alert, cluster is stable. No reply needed — task left open for Scott to close manually.</div>
+</div>
 
-  <div class="card watching">
-    <div class="card-title">RBS unreachable – Boston (WCVB-TRIA1)<span class="badge amber">WARNING</span></div>
-    <div class="meta">htv001bosrbk001 → Boston</div>
-    <div class="meta">WCVB-TRIA1.CompanyNet.org</div>
-    <div class="detail">Rubrik Backup Service unreachable on host WCVB-TRIA1, 8/13. Day 1 watching only.</div>
-  </div>
+<div class="card watching">
+<div class="title">Rubrik: P1 Case #01273239 – Fort Myers (Node is Bad) [CLOSED]</div>
+<div class="detail">Case officially closed by Rubrik Support 7/30. Underlying network-interface-down symptom on this cluster continues separately (tracked above).</div>
+</div>
 
-  <div class="note">Daily Event Report cross-check (Step 2C): received and reviewed — matched real-time alerts, no report-only coverage gaps found today.</div>
+<h2>👀 Watching (Day 1, not yet escalated)</h2>
 
-  <footer>cigardev.xyz | Rubrik Triage | August 13, 2026</footer>
+<div class="card watching">
+<div class="title">Rubrik: Backup failure – Boston (4099 Station TWC Core 2)</div>
+<div class="detail">See Critical section above — Day 1, needs to recur tomorrow to open a task.</div>
+</div>
+
+<div class="card watching">
+<div class="title">Rubrik: Node task failure – Manchester (005696)</div>
+<div class="detail">See Critical section above — Day 1, needs to recur tomorrow to open a task.</div>
+</div>
+
+<h2>🏁 Things 3 Changes</h2>
+<div class="card watching">
+<div class="detail">✅ Created: New Orleans snapshot failure (C:\Florical Folder) — promoted from Day 1 to confirmed.<br>🏁 Closed: HT-HTS-SUB Azure subscription refresh (3rd consecutive silent day) · Albany GCP archival connection (3rd consecutive silent day).<br>🔕 Removed from tracking (self-healed, never escalated): Boston WCVB-TRIA1 RBS-unreachable Day-1 watch.</div>
+</div>
+
+<footer>cigardev.xyz | Rubrik Triage | August 14, 2026</footer>
 </div>
 </body>
 </html>
