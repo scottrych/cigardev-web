@@ -14,165 +14,161 @@
 }
 body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); margin: 0; }
 .wrap { max-width: 800px; margin: 0 auto; padding: 1.5rem; }
-.back { font-size: 0.85rem; color: var(--accent); text-decoration: none; }
-h1 { font-size: 2rem; margin: 0.5rem 0 0.1rem 0; background: linear-gradient(90deg, #fff, var(--accent)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.subtitle { color: #94a3b8; font-size: 0.9rem; margin-bottom: 1.25rem; }
-.note { color: #94a3b8; font-size: 0.85rem; margin: 0.5rem 0 1rem 0; }
-.pills { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
-.pill { border-radius: 999px; padding: 0.35rem 0.9rem; font-size: 0.85rem; font-weight: 600; }
-.pill.red { background: var(--red-dim); color: var(--red); }
-.pill.amber { background: var(--amber-dim); color: var(--amber); }
-.pill.cyan { background: var(--cyan-dim); color: var(--cyan); }
-.pill.gray { background: #1e293b; color: #94a3b8; border: 1px solid #334155; }
-h2 { font-size: 1.1rem; margin: 1.75rem 0 0.5rem 0; color: #e2e8f0; }
-.card { background: var(--card); border-radius: 1rem; border: 1px solid #334155; padding: 1.25rem; margin: 0.75rem 0; border-left: 4px solid #334155; }
-.card.critical { border-left-color: var(--red); }
-.card.warning { border-left-color: var(--amber); }
-.card.reply { border-left-color: var(--cyan); }
-.card.watching { border-left-color: #64748b; }
-.card.green { border-left-color: var(--green); }
-.card-title { font-weight: 700; font-size: 1rem; margin-bottom: 0.35rem; }
-.badge { display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; padding: 0.15rem 0.5rem; border-radius: 0.4rem; margin-left: 0.4rem; vertical-align: middle; }
-.badge.red { background: var(--red-dim); color: var(--red); }
-.badge.cyan { background: var(--cyan-dim); color: var(--cyan); }
-.badge.green { background: var(--green-dim); color: var(--green); }
+.backlink { font-size: 0.85rem; color: var(--accent); text-decoration: none; }
+h1 { font-size: 2rem; margin: 0.5rem 0 0.25rem; background: linear-gradient(90deg, #fff, var(--accent)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.subtitle { color: #94a3b8; font-size: 0.9rem; margin-bottom: 1rem; }
+.pillbar { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+.pill { padding: 0.35rem 0.85rem; border-radius: 999px; font-size: 0.85rem; font-weight: 600; }
+.pill.red { background: var(--red-dim); color: #fca5a5; }
+.pill.amber { background: var(--amber-dim); color: #fcd34d; }
+.pill.cyan { background: var(--cyan-dim); color: #67e8f9; }
+.pill.gray { background: #334155; color: #cbd5e1; }
+h2 { font-size: 1.1rem; margin: 1.5rem 0 0.5rem; color: #e2e8f0; }
+.card { background: var(--card); border-radius: 1rem; border: 1px solid #334155; padding: 1.25rem; margin: 0.75rem 0; }
+.card.critical { border-left: 4px solid var(--red); }
+.card.warning { border-left: 4px solid var(--amber); }
+.card.reply { border-left: 4px solid var(--cyan); }
+.card.watching { border-left: 4px solid #334155; }
+.card.green { border-left: 4px solid var(--green); }
+.card-title { font-weight: 700; font-size: 1rem; margin-bottom: 0.25rem; }
+.badge { display: inline-block; font-size: 0.7rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 0.4rem; margin-left: 0.4rem; vertical-align: middle; }
+.badge.red { background: var(--red-dim); color: #fca5a5; }
+.badge.amber { background: var(--amber-dim); color: #fcd34d; }
+.badge.cyan { background: var(--cyan-dim); color: #67e8f9; }
 .meta { color: #94a3b8; font-size: 0.85rem; margin: 0.15rem 0; }
-.detail { color: #cbd5e1; font-size: 0.9rem; margin-top: 0.5rem; line-height: 1.4; }
-footer { text-align: center; color: #64748b; font-size: 0.8rem; margin: 2.5rem 0 1rem 0; }
+.detail { color: #cbd5e1; font-size: 0.9rem; margin-top: 0.5rem; }
+.note { color: #94a3b8; font-size: 0.85rem; margin: 0.5rem 0 1rem; }
+footer { text-align: center; color: #64748b; font-size: 0.8rem; margin-top: 2.5rem; padding-bottom: 1.5rem; }
 </style>
 </head>
 <body>
 <div class="wrap">
-<a class="back" href="https://cigardev.xyz">← cigardev.xyz</a>
-<h1>Rubrik Triage</h1>
-<div class="subtitle">Last updated: August 17, 2026 at 9:03 AM ET</div>
-<div class="note">ℹ️ No triage ran over the weekend (8/15–8/16). Consecutive-day counters were bridged from the last check on 8/14.</div>
+  <a class="backlink" href="https://cigardev.xyz">&larr; cigardev.xyz</a>
+  <h1>Rubrik Triage</h1>
+  <div class="subtitle">Last updated: August 18, 2026 at 9:03 AM ET</div>
 
-<div class="pills">
-<span class="pill red">🔴 7 Critical</span>
-<span class="pill amber">⚠️ 2 Warnings</span>
-<span class="pill cyan">🙋 1 Reply</span>
-<span class="pill gray">👀 5 Watching</span>
-</div>
+  <div class="pillbar">
+    <span class="pill red">🔴 8 Critical</span>
+    <span class="pill amber">⚠️ 2 Warnings</span>
+    <span class="pill cyan">🙋 1 Reply</span>
+    <span class="pill gray">👀 5 Watching</span>
+  </div>
 
-<h2>🔴 Critical</h2>
+  <h2>🔴 Critical</h2>
+  <div class="card critical">
+    <div class="card-title">Rubrik: Archive upload failure – Milwaukee (WISN-MSTOR)<span class="badge red">NEW TASK</span></div>
+    <div class="meta">htv001mlwrbk001 → Milwaukee</div>
+    <div class="meta">Object: WISN-MSTOR: *.bak (NAS fileset)</div>
+    <div class="detail">Failed to upload snapshot to Azure archival location. Recurred 2nd consecutive day (8/17, 8/18) — promoted from watching to confirmed.</div>
+  </div>
+  <div class="card critical">
+    <div class="card-title">Rubrik: Periodic node task failures – Milwaukee</div>
+    <div class="meta">htv001mlwrbk001 → Milwaukee</div>
+    <div class="meta">Object: Nodes RVMHM191S004070, 004072, 004136, 004373</div>
+    <div class="detail">Recurred again 8/18: task failures on 004070, 004136, 004373. Over 4 weeks unresolved.</div>
+  </div>
+  <div class="card critical">
+    <div class="card-title">Rubrik: Backup/upload failures – Westbrook (multiple objects)</div>
+    <div class="meta">htv001wbkrbk001 → Westbrook, ME (WMTW)</div>
+    <div class="meta">Object: WMTW-MM1, WMTW-SIG-AGENT, node tasks 005351/005414, + composite</div>
+    <div class="detail">Recurred again 8/18: node task failures on 005351/005414, archive upload failures on WMTW-MM1 and WMTW-SIG-AGENT. Continuing since 7/20 (4 weeks).</div>
+  </div>
+  <div class="card critical">
+    <div class="card-title">Rubrik: Network interface down – Fort Myers</div>
+    <div class="meta">hts001fmtrbk001 → Fort Myers</div>
+    <div class="meta">Object: Nodes RVMHM187S009415, 009048, 009418</div>
+    <div class="detail">Silent 8/18 (day 1 of 3) — no alert or Daily Event Reporx match today. Will close if silence continues 3 days. Was continuing since 7/10.</div>
+  </div>
+  <div class="card critical">
+    <div class="card-title">Rubrik: Widespread backup failures – Louisville</div>
+    <div class="meta">hts001lourbk001 → Louisville</div>
+    <div class="meta">Object: 25+ objects (Splunk feeds, BQLIKEM, C_Drive filesets, RBS-unreachable hosts)</div>
+    <div class="detail">Confirmed again 8/18 — 20+ Critical backup failures, fully matched by Daily Event Report. Over 6 weeks running. No support case open.</div>
+  </div>
+  <div class="card critical">
+    <div class="card-title">Rubrik: M365 protection failures – hearstpm</div>
+    <div class="meta">Rubrik Security Cloud → Cloud / M365</div>
+    <div class="meta">Object: hearstpm.onmicrosoft.com</div>
+    <div class="detail">Silent 8/18 (day 1) — no M365 alert seen today. Needs Entra ID app registration reconfiguration — 5+ weeks unresolved prior to today.</div>
+  </div>
+  <div class="card critical">
+    <div class="card-title">Rubrik: Backup failure – Fort Smith</div>
+    <div class="meta">htv001ftsrbk001 → Fort Smith, AR (KHBS/KHOG)</div>
+    <div class="meta">Object: KHOG-COMPUSAT.CompanyNet.org (Windows Fileset KHBSKHOG + Volume Group)</div>
+    <div class="detail">Recurred again 8/18, confirmed via real-time Critical alerts and Daily Event Report. Unresolved since 8/3.</div>
+  </div>
+  <div class="card critical">
+    <div class="card-title">Rubrik: Snapshot failure – New Orleans (WDSU)</div>
+    <div class="meta">htv001nolrbk001 → New Orleans, LA (WDSU)</div>
+    <div class="meta">Object: Fileset C:/Florical Folder from 10.140.14.93</div>
+    <div class="detail">Recurred again 8/18 (per Daily Event Report). Still unresolved since 8/13.</div>
+  </div>
 
-<div class="card critical">
-<div class="card-title">Periodic node task failures – Milwaukee<span class="badge red">CRITICAL</span></div>
-<div class="meta">htv001mlwrbk001 → Milwaukee</div>
-<div class="meta">Nodes RVMHM191S004070, 004072, 004136, 004373</div>
-<div class="detail">Recurred again 8/17: task failures on 004070, 004072, 004136 plus NtpClockOffsetPeers critical on 004070. Over 4 weeks unresolved (since 7/16).</div>
-</div>
+  <h2>⚠️ Warnings</h2>
+  <div class="card warning">
+    <div class="card-title">Rubrik: RBS unreachable – Jackson</div>
+    <div class="meta">htv001jksrbk001 → Jackson</div>
+    <div class="meta">Object: 10.158.14.101, 10.158.36.114</div>
+    <div class="detail">Same 2 hosts unreachable again 8/18. Unresolved 6+ weeks running.</div>
+  </div>
+  <div class="card warning">
+    <div class="card-title">Rubrik: Storage over 90% full – Boston</div>
+    <div class="meta">htv001bosrbk001 → Boston</div>
+    <div class="detail">Storage still over 90% full, recurred again 8/18.</div>
+  </div>
 
-<div class="card critical">
-<div class="card-title">Network interface down – Fort Myers<span class="badge red">CRITICAL</span></div>
-<div class="meta">hts001fmtrbk001 → Fort Myers</div>
-<div class="meta">Nodes RVMHM187S009415, 009048, 009418</div>
-<div class="detail">Recurred again 8/17 on all 3 nodes. Continuing since 7/10 — over 5 weeks.</div>
-</div>
+  <h2>☁️ Support Cases</h2>
+  <div class="card reply">
+    <div class="card-title">P1 Case #01278151 – Manchester, NH (WMUR) (Node is Bad)<span class="badge cyan">REPLY NEEDED</span><span class="badge red">CORROBORATED</span></div>
+    <div class="meta">htv001mncrbk001 → Manchester, NH (WMUR)</div>
+    <div class="detail">No new correspondence from Rubrik Support since 8/7 (checked again 8/18). Reply still needed from Scott on tunnel access request.</div>
+  </div>
+  <div class="card watching">
+    <div class="card-title">P1 Case #01273239 – Fort Myers (Node is Bad) <span class="badge amber">CLOSED</span></div>
+    <div class="detail">Officially closed by Rubrik Support 7/30. Underlying network symptom on this cluster continues separately (see Critical section).</div>
+  </div>
+  <div class="card watching">
+    <div class="card-title">P1 Case #01252114 – Milwaukee (Node is Bad) <span class="badge amber">RESOLVED</span></div>
+    <div class="detail">Resolved by Rubrik Support 8/5. Task left open for Scott to close manually.</div>
+  </div>
+  <div class="card watching">
+    <div class="card-title">P1 Case #01285209 – Plattsburgh, NY (WPTZ) (Node is Bad) <span class="badge amber">ARCHIVED</span></div>
+    <div class="detail">Archived 8/17: root cause was 8/8 power outage, all nodes confirmed healthy. Task left open for Scott to close manually.</div>
+  </div>
 
-<div class="card critical">
-<div class="card-title">Widespread backup failures – Louisville<span class="badge red">CRITICAL</span></div>
-<div class="meta">hts001lourbk001 → Louisville</div>
-<div class="meta">25+ objects (Splunk feeds, BQLIKEM, PBDC74, CPCNETSVC07, PBBLD102, DBQLIKEM100A/B, PCKEYSCAN101, PCNVR101, E Data backup, PBSPL202-207, PBINTSYS114A) plus C_Drive filesets &amp; RBS-unreachable hosts</div>
-<div class="detail">Confirmed again 8/17 — 20+ Critical backup failures, fully matched by the Daily Event Report (no report-only gap this cluster). New Warning: remote cluster hts001dalrbk002 unreachable. Over 6 weeks running, no support case open.</div>
-</div>
+  <h2>👀 Watching (Day 1 — new today)</h2>
+  <div class="card watching">
+    <div class="card-title">Upload failure – Milwaukee (FLORICAL_SCHEDULES_SHOW)</div>
+    <div class="meta">htv001mlwrbk001 → Milwaukee</div>
+    <div class="detail">Internal error, unable to upload snapshot. Day 1 watching only.</div>
+  </div>
+  <div class="card watching">
+    <div class="card-title">Upload failure – Milwaukee (master)</div>
+    <div class="meta">htv001mlwrbk001 → Milwaukee</div>
+    <div class="detail">Internal error RBK93330030 (Atlas.CreateDirectoryRPC), unable to upload snapshot. Day 1 watching only.</div>
+  </div>
+  <div class="card watching">
+    <div class="card-title">MSSQL agent unreachable – Milwaukee (WISN-FCDB1)</div>
+    <div class="meta">htv001mlwrbk001 → Milwaukee</div>
+    <div class="detail">Failed while getting agent info at WISN-FCDB1.CompanyNet.Org:12800 — 3 incidents ~04:47–05:08 AM. Day 1 watching only.</div>
+  </div>
+  <div class="card watching">
+    <div class="card-title">MSSQL log backup failure – Jackson (FLORICAL_SCHEDULES_MAPT)</div>
+    <div class="meta">htv001jksrbk001 → Jackson</div>
+    <div class="detail">Unable to resolve host name 'WAPT-FCDB1.CompanyNet.Org' — DNS failure. Day 1 watching only.</div>
+  </div>
+  <div class="card watching">
+    <div class="card-title">Storage over 90% full – htv001omarbk001</div>
+    <div class="meta">htv001omarbk001 → Omaha (inferred)</div>
+    <div class="detail">New cluster, not previously tracked. Day 1 watching only.</div>
+  </div>
 
-<div class="card critical">
-<div class="card-title">Backup failure – Fort Smith (KHOG-COMPUSAT)<span class="badge red">CRITICAL</span></div>
-<div class="meta">htv001ftsrbk001 → Fort Smith, AR (KHBS/KHOG)</div>
-<div class="meta">Windows Fileset KHBSKHOG + Volume Group, from KHOG-COMPUSAT.CompanyNet.org</div>
-<div class="detail">Recurred again 8/17, confirmed via real-time alerts and Daily Event Report. Longstanding since 8/3.</div>
-</div>
+  <h2>Things 3 Changes</h2>
+  <div class="card green">
+    <div class="detail">✅ Created: "Rubrik: Archive upload failure – Milwaukee (WISN-MSTOR)" → filed under 🔴 Critical<br>🏁 Closed: "Rubrik: Snapshot failure – Kansas City" (KMBC-MOS) — 3 consecutive silent days<br>🧹 Dropped from tracking (self-healed, no task ever existed): WISN-SIG-AGENT, FLORICAL_SCHEDULES_JISN (Milwaukee); WMUR-AC1 volumes, FSIAcquisition (Manchester)</div>
+  </div>
 
-<div class="card critical">
-<div class="card-title">Snapshot failure – New Orleans (WDSU)<span class="badge red">CRITICAL</span></div>
-<div class="meta">htv001nolrbk001 → New Orleans, LA (inferred from cluster code)</div>
-<div class="meta">Fileset C:/Florical Folder from 10.140.14.93</div>
-<div class="detail">Recurred again 8/17 (also seen 8/16 per Daily Event Report). Still unresolved since 8/13.</div>
-</div>
-
-<div class="card critical">
-<div class="card-title">M365 protection failures – hearstpm<span class="badge red">CRITICAL</span></div>
-<div class="meta">Rubrik Security Cloud → Cloud / M365</div>
-<div class="meta">hearstpm.onmicrosoft.com</div>
-<div class="detail">Critical unable-to-create-maintained-backup recurred again 8/17, plus M365 Metadata Refresh Failed and a new Insufficient Teams Apps warning. Needs Entra ID app registration fix — 5+ weeks unresolved.</div>
-</div>
-
-<div class="card critical">
-<div class="card-title">Backup/upload failures – Westbrook (multiple objects)<span class="badge red">CRITICAL</span></div>
-<div class="meta">htv001wbkrbk001 → Westbrook, ME (WMTW)</div>
-<div class="meta">Node task failures 005414/005439, NtpClockOffsetPeers on 005414, plus composite of WMTW VMs/filesets</div>
-<div class="detail">Recurred again 8/17. Composite issue continuing since 7/20 — nearly 4 weeks.</div>
-</div>
-
-<h2>⚠️ Warnings</h2>
-
-<div class="card warning">
-<div class="card-title">RBS unreachable – Jackson<span class="badge red">WARNING</span></div>
-<div class="meta">htv001jksrbk001 → Jackson</div>
-<div class="meta">10.158.14.101, 10.158.36.114</div>
-<div class="detail">Same 2 hosts unreachable again 8/17. Unresolved 6+ weeks running.</div>
-</div>
-
-<div class="card warning">
-<div class="card-title">Storage over 90% full – Boston<span class="badge red">WARNING</span></div>
-<div class="meta">htv001bosrbk001 → Boston</div>
-<div class="detail">Recurred again 8/17. Ongoing since 7/30.</div>
-</div>
-
-<h2>☁️ Support Cases</h2>
-
-<div class="card reply">
-<div class="card-title">P1 Case #01278151 – Manchester (Node is Bad)<span class="badge cyan">REPLY NEEDED</span><span class="badge red">CORROBORATED</span></div>
-<div class="meta">htv001mncrbk001 → Manchester, NH (WMUR)</div>
-<div class="detail">No new correspondence from Rubrik Support since 8/7 (checked again 8/17). Scott's reply on the tunnel access request is still outstanding.</div>
-</div>
-
-<div class="card">
-<div class="card-title">P1 Case #01285209 – Plattsburgh (Node is Bad)<span class="badge green">ARCHIVED</span><span class="badge red">CORROBORATED</span></div>
-<div class="meta">htv001wptzrbk01 → Plattsburgh, NY (WPTZ)</div>
-<div class="detail">Archived by Rubrik Support 8/17 12:25 AM: root cause was the 8/8 power outage, all nodes confirmed healthy. Task left open for Scott to close manually.</div>
-</div>
-
-<h2>👀 Watching (Day 1 — new today, not yet escalated)</h2>
-
-<div class="card watching">
-<div class="card-title">Archive upload failure – Milwaukee (WISN-MSTOR)</div>
-<div class="meta">htv001mlwrbk001 → Milwaukee</div>
-<div class="detail">Failed to upload snapshot to Azure archival location. Similar object self-healed on 7/7 — watching for recurrence before escalating.</div>
-</div>
-
-<div class="card watching">
-<div class="card-title">Archive upload failure – Milwaukee (WISN-SIG-AGENT)</div>
-<div class="meta">htv001mlwrbk001 → Milwaukee</div>
-<div class="detail">Failed to upload snapshot. Similar VM self-healed on 7/8 — watching for recurrence.</div>
-</div>
-
-<div class="card watching">
-<div class="card-title">Upload failure – Milwaukee (FLORICAL_SCHEDULES_JISN)</div>
-<div class="meta">htv001mlwrbk001 → Milwaukee</div>
-<div class="detail">Job execution interrupted, unable to upload snapshot (Mssql).</div>
-</div>
-
-<div class="card watching">
-<div class="card-title">Archive upload failure – Manchester (WMUR-AC1 volumes)</div>
-<div class="meta">htv001mncrbk001 → Manchester, NH (WMUR)</div>
-<div class="detail">Failed to upload snapshot of Windows volumes to Azure archival location.</div>
-</div>
-
-<div class="card watching">
-<div class="card-title">MSSQL log backup failure – Manchester (FSIAcquisition)</div>
-<div class="meta">htv001mncrbk001 → Manchester, NH (WMUR)</div>
-<div class="detail">Failed backup of the transaction log for the FSIAcquisition SQL Server database.</div>
-</div>
-
-<h2>Things 3 Changes</h2>
-<div class="card">
-<div class="detail">✅ Created: none (no issue crossed the 2-day threshold today)<br>🏁 Closed: none<br>📝 Notes updated: 10 open tasks (7 recurring Critical/Warning issues, 2 unchanged support cases, 1 archived case)<br>🗑️ Dropped from tracking (never escalated, went silent): Boston "4099 Station TWC Core 2", fdbdr-rbkcc-001 APP30_cfs_PRD, Manchester node 005696 telemetry task</div>
-</div>
-
-<footer>cigardev.xyz | Rubrik Triage | August 17, 2026</footer>
+  <footer>cigardev.xyz | Rubrik Triage | August 18, 2026</footer>
 </div>
 </body>
 </html>
